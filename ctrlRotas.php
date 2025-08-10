@@ -3,8 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$uri = trim(parse_url($_GET['uri'] ?? '', PHP_URL_PATH), '/');
-
+$uri = $_GET['uri'] ?? '';
 
 foreach ($_GET as $key => $value) {
     $_GET[$key] = addslashes($_GET[$key]);
