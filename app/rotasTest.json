@@ -1,4 +1,8 @@
 {
-    "": "public/index.php",
-    "public": "public/index.php"
+  "": "public/index.php", 
+  "home": "public/index.php",
+  "admin": "public/admin.php",
+  "contato": "app/controllers/ContatoController.php",
+  "sobre": "app/controllers/SobreController.php",
+  "processar-formulario": "app/controllers/process_form.php"
 }
