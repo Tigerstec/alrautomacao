@@ -1,13 +1,21 @@
 
-RewriteEngine On   				# Ativa o módulo de reescrita de URL no Apache. 
+RewriteEngine On
 
-# caso eu queira aplica essa regra só pra caminhos não existentes 
-# RewriteCond %{REQUEST_FILENAME} !-f		# condição é verdadeira quando o arquivo NÃO existe
-# RewriteCond %{REQUEST_FILENAME} !-d		# condição é verdadeira quando o diretório NÃO existe
+RewriteBase /alrautomacao/
 
-# Redireciona todas as URLs que não correspondem a um arquivo ou diretório existente para o arquivo "index.php". 
-# "?uri=$1" anexa a URL original como um parâmetro GET chamado "uri". 
-# "QSA" significa que os parâmetros de consulta existentes são preservados e 
-# "L" 	é um sinalizador que indica que esta é a última regra a ser processada.
+DirectoryIndex ctrlRotas.php index.php index.html
 
+RewriteCond %{REQUEST_URI} !^/alrautomacao/public/ [NC]
+RewriteCond %{REQUEST_URI} !^/alrautomacao/ctrlRotas\.php$ [NC]
+RewriteRule \.php$ - [F,L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !^/alrautomacao/?$ [NC]
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ ctrlRotas.php?uri=$1 [QSA,L]
