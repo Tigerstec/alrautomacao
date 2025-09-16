@@ -1,11 +1,15 @@
 <?php
+
 // Habilita a exibição de todos os erros para depuração
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Obtém a URI, removendo barras extras do início e fim.
 // A URI vazia (acesso à raiz) será agora tratada na função abreRota, buscando a rota padrão no JSON.
-$uri = trim(parse_url($_GET['uri'] ?? '', PHP_URL_PATH), '/');
+// Novas linhas (substituição)
+$full_uri = $_GET['uri'] ?? '';
+$uri_parts = explode('?', $full_uri, 2); // Divide a URI no '?'
+$uri = trim($uri_parts[0], '/'); // A primeira parte é a rota
 
 // Sanitiza os dados de GET e POST para evitar injeções básicas
 foreach ($_GET as $key => $value) {

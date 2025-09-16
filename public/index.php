@@ -9,22 +9,21 @@
     <link rel="stylesheet" href="public/assets/css/index.css">
 </head>
 <body class="font-sans text-gray-800 bg-light">
-    <!-- Header/Navbar -->
-  <header id="main-header" class="fixed w-full z-50 transition-all duration-500">
-   <div id="header-container" class="opacity-90 !bg-light border-2 border-black max-w-7xl mx-auto px-4 py-4 mt-4 -black rounded-3xl text-white shadow-md transition-all duration-500">
+    <header id="main-header" class="fixed w-full z-50 transition-all duration-500">
+<div id="header-container" class="opacity-90 !bg-light border-2 border-black max-w-7xl mx-auto px-4 py-4 mt-4 -black rounded-3xl text-white shadow-md transition-all duration-500">
         <div class="flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <img src="public/assets/images/logo.png" alt="Logo" class="h-12">
             </div>
             
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#inicio" class="text-black hover:text-gray-400 font-medium">Início</a>
-                <a href="#quem-somos" class="text-black hover:text-gray-400 font-medium">Quem Somos</a>
-                <a href="#servicos" class="text-black hover:text-gray-400 font-medium">Serviços</a>
-                <a href="#projetos" class="text-black hover:text-gray-400 font-medium">Projetos</a>
-                <a href="#contato" class="text-black hover:text-gray-400 font-medium">Contato</a>
-                <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full transition-colors duration-200">
-                    Log in
+                <a href="#inicio" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Início</a>
+                <a href="#quem-somos" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Quem Somos</a>
+                <a href="#servicos" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Serviços</a>
+                <a href="#projetos" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Projetos</a>
+                <a href="#contato" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Contato</a>
+                <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 hover:scale-105">
+                    <a href="login">Log in</a>
                 </button>
             </div>
             
@@ -48,61 +47,71 @@
         </div>
     </div>
 </header>
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-bg min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4 py-20">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 text-white mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Soluções Inteligentes em Automação Industrial</h1>
-                    <p class="text-xl mb-8 opacity-90">Transformando processos industriais com tecnologia de ponta e conhecimento técnico para aumentar sua produtividade.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="#contato" class="btn-primary bg-accent hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg inline-block">
-                            Solicitar Orçamento
-                        </a>
-                        <a href="#servicos" class="bg-transparent border-2 border-white text-white font-medium py-3 px-6 rounded-lg inline-block hover:bg-white hover:text-primary transition duration-300">
-                            Nossos Serviços
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <svg class="w-full max-w-md" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="100" y="50" width="400" height="300" rx="10" fill="#f0f0f0" />
-                        <rect x="130" y="80" width="340" height="240" rx="5" fill="#e0e0e0" />
-                        <circle cx="300" cy="200" r="80" fill="#d0d0d0" />
-                        <path d="M300 120 L300 200 L360 200" stroke="#FF6B00" stroke-width="8" stroke-linecap="round" />
-                        <circle cx="300" cy="200" r="10" fill="#FF6B00" />
-                        <rect x="150" y="100" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="150" y="150" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="150" y="200" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="150" y="250" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="390" y="100" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="390" y="150" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="390" y="200" width="60" height="30" rx="5" fill="#0047AB" />
-                        <rect x="390" y="250" width="60" height="30" rx="5" fill="#0047AB" />
-                        <circle cx="180" cy="115" r="5" fill="#FF6B00" />
-                        <circle cx="180" cy="165" r="5" fill="#FF6B00" />
-                        <circle cx="180" cy="215" r="5" fill="#FF6B00" />
-                        <circle cx="180" cy="265" r="5" fill="#FF6B00" />
-                        <circle cx="420" cy="115" r="5" fill="#FF6B00" />
-                        <circle cx="420" cy="165" r="5" fill="#FF6B00" />
-                        <circle cx="420" cy="215" r="5" fill="#FF6B00" />
-                        <circle cx="420" cy="265" r="5" fill="#FF6B00" />
-                    </svg>
+    <section id="inicio" class="hero-bg min-h-screen flex items-center pt-16 relative">
+    <div class="container mx-auto px-4 py-20 flex flex-col items-center">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-white mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Soluções Inteligentes em Automação Industrial
+                </h1>
+                <p class="text-xl mb-8 opacity-90">
+                    Transformando processos industriais com tecnologia de ponta e conhecimento técnico para aumentar sua produtividade.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contato" class="btn-primary bg-accent hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg inline-block transition-transform duration-300 hover:scale-105">
+                        Solicitar Orçamento
+                    </a>
+                    <a href="#servicos" class="bg-transparent border-2 border-white text-white font-medium py-3 px-6 rounded-lg inline-block hover:bg-white hover:text-primary transition-all duration-300 hover:scale-105">
+                        Nossos Serviços
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Quem Somos Section -->
-    <section id="quem-somos" class="py-20 bg-gray-50">
+            <div class="md:w-1/2 flex justify-center">
+                <svg class="w-full max-w-md" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="100" y="50" width="400" height="300" rx="10" fill="#f0f0f0" />
+                    <rect x="130" y="80" width="340" height="240" rx="5" fill="#e0e0e0" />
+                    <circle cx="300" cy="200" r="80" fill="#d0d0d0" />
+                    <path d="M300 120 L300 200 L360 200" stroke="#FF6B00" stroke-width="8" stroke-linecap="round" />
+                    <circle cx="300" cy="200" r="10" fill="#FF6B00" />
+                    <rect x="150" y="100" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="150" y="150" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="150" y="200" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="150" y="250" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="390" y="100" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="390" y="150" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="390" y="200" width="60" height="30" rx="5" fill="#0047AB" />
+                    <rect x="390" y="250" width="60" height="30" rx="5" fill="#0047AB" />
+                    <circle cx="180" cy="115" r="5" fill="#FF6B00" />
+                    <circle cx="180" cy="165" r="5" fill="#FF6B00" />
+                    <circle cx="180" cy="215" r="5" fill="#FF6B00" />
+                    <circle cx="180" cy="265" r="5" fill="#FF6B00" />
+                    <circle cx="420" cy="115" r="5" fill="#FF6B00" />
+                    <circle cx="420" cy="165" r="5" fill="#FF6B00" />
+                    <circle cx="420" cy="215" r="5" fill="#FF6B00" />
+                    <circle cx="420" cy="265" r="5" fill="#FF6B00" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+        <a href="#quem-somos" class="text-[#FF6B00] text-3xl animate-bounce">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </div>
+</section>
+
+
+    <section id="quem-somos" class="py-20 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Quem Somos</h2>
                 <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Conheça a ALR Automações Industrial, referência em soluções tecnológicas para o setor industrial.</p>
             </div>
             
-            <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-col md:flex-row items-center js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
                     <div class="relative">
                         <div class="bg-primary w-64 h-64 rounded-full absolute -z-10 -top-6 -left-6"></div>
@@ -160,244 +169,123 @@
                             <span class="text-gray-700">Suporte Contínuo</span>
                         </div>
                     </div>
-                    
-                    <button class="btn-primary bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg inline-flex items-center">
-                        <span>Conheça Nossa Equipe</span>
-                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicos" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos Serviços</h2>
-                <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Oferecemos soluções completas em automação industrial para otimizar seus processos e aumentar sua produtividade.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Automação de Processos</h3>
-                        <p class="text-gray-600 mb-4">Desenvolvimento e implementação de sistemas automatizados para otimizar processos industriais, reduzir custos e aumentar a eficiência operacional.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="automacao">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Sistemas de Controle</h3>
-                        <p class="text-gray-600 mb-4">Projeto e implementação de sistemas de controle industrial, incluindo CLPs, IHMs, SCADA e sistemas de supervisão para monitoramento em tempo real.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="controle">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Eficiência Energética</h3>
-                        <p class="text-gray-600 mb-4">Soluções para otimização do consumo de energia em ambientes industriais, reduzindo custos operacionais e promovendo sustentabilidade.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="energia">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Integração de Sistemas</h3>
-                        <p class="text-gray-600 mb-4">Integração de sistemas legados com novas tecnologias, permitindo a comunicação eficiente entre diferentes equipamentos e plataformas.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="integracao">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Manutenção Preditiva</h3>
-                        <p class="text-gray-600 mb-4">Implementação de sistemas de monitoramento e análise para prever falhas em equipamentos, reduzindo paradas não programadas e custos de manutenção.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="manutencao">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-48 bg-primary flex items-center justify-center">
-                        <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Indústria 4.0</h3>
-                        <p class="text-gray-600 mb-4">Implementação de tecnologias da Indústria 4.0, como IoT industrial, Big Data e Inteligência Artificial para transformação digital de processos industriais.</p>
-                        <button class="service-details-btn text-primary font-medium flex items-center" data-service="industria40">
-                            <span>Saiba Mais</span>
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+<section id="servicos" class="py-20 bg-white overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos Serviços</h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Oferecemos soluções completas em automação industrial para otimizar seus processos e aumentar sua produtividade.</p>
         </div>
-    </section>
-
-    <!-- Service Modal -->
-    <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
-                    <button id="close-service-modal" class="text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
+                <div class="h-48 bg-primary flex items-center justify-center">
+                    <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                    </svg>
                 </div>
-                <div id="modal-content" class="text-gray-600"></div>
-                <div class="mt-8 flex justify-end">
-                    <button id="modal-close-btn" class="bg-primary hover:bg-secondary text-white font-medium py-2 px-6 rounded-lg">Fechar</button>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Automação de Processos</h3>
+                    <p class="text-gray-600 mb-4">Desenvolvimento e implementação de sistemas automatizados para otimizar processos industriais, reduzir custos e aumentar a eficiência operacional.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
+                <div class="h-48 bg-primary flex items-center justify-center">
+                    <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sistemas de Controle</h3>
+                    <p class="text-gray-600 mb-4">Projeto e implementação de sistemas de controle industrial, incluindo CLPs, IHMs, SCADA e sistemas de supervisão para monitoramento em tempo real.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
+                <div class="h-48 bg-primary flex items-center justify-center">
+                    <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Integração de Sistemas</h3>
+                    <p class="text-gray-600 mb-4">Integração de sistemas legados com novas tecnologias, permitindo a comunicação eficiente entre diferentes equipamentos e plataformas.</p>
+                </div>
+            </div>
+            <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 450ms;">
+                <div class="h-48 bg-primary flex items-center justify-center">
+                    <svg class="w-24 h-24 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Manutenção Preditiva</h3>
+                    <p class="text-gray-600 mb-4">Implementação de sistemas de monitoramento e análise para prever falhas em equipamentos, reduzindo paradas não programadas e custos de manutenção.</p>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projetos" class="py-20 bg-gray-50">
+    <section id="projetos" class="py-20 bg-gray-50 overflow-hidden">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Projetos Realizados</h2>
                 <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Conheça alguns dos nossos projetos de sucesso em diferentes segmentos industriais.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-56 bg-gray-300 relative">
-                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="400" height="300" fill="#e0e0e0" />
-                            <rect x="50" y="50" width="300" height="200" fill="#d0d0d0" />
-                            <circle cx="200" cy="150" r="80" fill="#0047AB" />
-                            <rect x="160" y="110" width="80" height="80" fill="#FF6B00" />
-                        </svg>
-                        <div class="absolute inset-0 bg-primary bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-primary font-medium py-2 px-4 rounded-lg project-details-btn" data-project="projeto1">Ver Detalhes</button>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/panasonic.png">
                         </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Automação de Linha de Produção</h3>
-                        <p class="text-gray-600 mb-4">Implementação de sistema completo de automação para linha de produção no setor alimentício.</p>
+                        <p class="text-gray-600 mb-4">Tela de interface para controle automático de célula de usinagem do cesto da máquina de lavar Panasonic, permitindo ajuste de posicionadores, monitoramento de servos, receitas de produção e diagnósticos em tempo real.</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                            <span>Concluído em 2022</span>
+                            <span>Concluído em 2024</span>
+
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-56 bg-gray-300 relative">
-                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="400" height="300" fill="#e0e0e0" />
-                            <rect x="50" y="50" width="300" height="200" fill="#d0d0d0" />
-                            <circle cx="120" cy="150" r="50" fill="#0047AB" />
-                            <circle cx="280" cy="150" r="50" fill="#FF6B00" />
-                            <rect x="170" y="100" width="60" height="100" fill="#0047AB" />
-                        </svg>
-                        <div class="absolute inset-0 bg-primary bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-primary font-medium py-2 px-4 rounded-lg project-details-btn" data-project="projeto2">Ver Detalhes</button>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/bausano.png">
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sistema SCADA para Indústria Química</h3>
-                        <p class="text-gray-600 mb-4">Desenvolvimento e implementação de sistema SCADA para monitoramento e controle de processos químicos.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Supervisório Siemens Wincc</h3>
+                        <p class="text-gray-600 mb-4">Tela de interface desenvolvida em SIMATIC HMI para controle e monitoramento da extrusora Bausano MD 130-25 Plus, permitindo ajuste de parâmetros de processo, supervisão de alarmes e gestão de manutenção preventiva.</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
-                            <span>Concluído em 2021</span>
+                            <span>Concluído em 2025</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="h-56 bg-gray-300 relative">
-                        <svg class="w-full h-full" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="400" height="300" fill="#e0e0e0" />
-                            <rect x="50" y="50" width="300" height="200" fill="#d0d0d0" />
-                            <rect x="100" y="100" width="200" height="100" fill="#0047AB" />
-                            <circle cx="150" cy="150" r="30" fill="#FF6B00" />
-                            <circle cx="250" cy="150" r="30" fill="#FF6B00" />
-                        </svg>
-                        <div class="absolute inset-0 bg-primary bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                            <button class="bg-white text-primary font-medium py-2 px-4 rounded-lg project-details-btn" data-project="projeto3">Ver Detalhes</button>
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/escania.png">
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Eficiência Energética em Siderúrgica</h3>
-                        <p class="text-gray-600 mb-4">Implementação de sistema de gestão energética para redução de consumo em processos siderúrgicos.</p>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Montagem do Coletor Scania</h3>
+                        <p class="text-gray-600 mb-4">Tela de supervisório desenvolvida em Siemens WinCC para a linha de montagem do coletor de escape da Scania, permitindo monitorar estados da máquina, gerenciar alarmes, acessar manuais e acompanhar todo o processo produtivo.</p>
                         <div class="flex items-center text-sm text-gray-500">
                             <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
@@ -406,47 +294,72 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="btn-primary bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg inline-flex items-center">
-                    <span>Ver Todos os Projetos</span>
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/painelcontrole.png">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Montagem de Painéis de Automação</h3>
+                        <p class="text-gray-600 mb-4">Projeto de montagem de painéis elétricos para controle de automação industrial, incluindo inversores, disjuntores, relés e sistemas de proteção, garantindo confiabilidade, segurança e eficiência no processo produtivo.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Concluído em 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/extrusora.png">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Menu Extrusora</h3>
+                        <p class="text-gray-600 mb-4">Tela de supervisório desenvolvida em DIA Screen Delta para controle de extrusora, com acesso a operação, receitas, gráficos, ajustes de PID, configuração de alarmes e histórico de falhas, otimizando o processo de extrusão.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Concluído em 2025</span>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
+                    <div class="h-56 relative">
+                        <div class="flex justify-center h-full w-full">
+                            <img class="w-full h-full object-cover" src="public/assets/images/lavagem.png">
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Retro Lavagem de Filtros</h3>
+                        <p class="text-gray-600 mb-4">Tela de supervisório desenvolvida em Siemens Simatic HMI para controle do processo de retro lavagem de filtros da caldeiraria, permitindo visualização do ciclo de filtragem, monitoramento de bombas, válvulas e parâmetros em tempo real.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Concluído em 2025</span>
+                        </div>
+                    </div>
+                </div>  
+            </div> 
     </section>
 
-    <!-- Project Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-        <div class="bg-white rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-            <div class="p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 id="project-modal-title" class="text-2xl font-bold text-gray-800"></h3>
-                    <button id="close-project-modal" class="text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div id="project-modal-content" class="text-gray-600"></div>
-                <div class="mt-8 flex justify-end">
-                    <button id="project-modal-close-btn" class="bg-primary hover:bg-secondary text-white font-medium py-2 px-6 rounded-lg">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<section class="py-20 bg-white">
+    <section class="py-20 bg-white overflow-hidden">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">O Que Nossos Clientes Dizem</h2>
             <div class="w-24 h-1 bg-accent mx-auto mb-6"></div>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto">Veja os depoimentos de alguns de nossos clientes satisfeitos com nossas soluções.</p>
         </div>
         
-        <div class="relative">
+        <div class="relative js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
             <div class="overflow-hidden">
                 <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-container">
                     <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
@@ -554,7 +467,6 @@
 <section id="contato" class="hero-bg min-h-screen flex items-center pt-16">
     <div class="container mx-auto px-4 py-20">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <!-- Título e Descrição (Coluna Esquerda) -->
             <div class="lg:w-1/2 text-white text-center lg:text-left mb-10 lg:mb-0">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Solicite seu Serviço</h2>
                 <div class="w-24 h-1 bg-accent mx-auto lg:mx-0 mb-6"></div>
@@ -563,19 +475,15 @@
                 </p>
             </div>
 
-            <!-- Formulário (Coluna Direita) -->
             <div class="lg:w-1/2 w-full">
                 <div class="bg-white bg-opacity-10 backdrop-blur-sm p-8 rounded-lg shadow-xl text-white">
-                    <!-- O formulário agora envia os dados para 'process_form.php' via AJAX -->
-                    <form id="contact-form" action="#" method="POST"> <!-- Removido o action="processar-formulario" para que o JS controle -->
+                    <form id="contact-form">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <!-- Nome -->
                             <div>
                                 <label for="name" class="block text-sm font-medium mb-2">Nome</label>
                                 <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-md border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent placeholder-gray-300 transition duration-200" placeholder="Seu nome completo" required>
                             </div>
 
-                            <!-- Empresa -->
                             <div>
                                 <label for="company" class="block text-sm font-medium mb-2">Empresa</label>
                                 <input type="text" id="company" name="company" class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-md border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent placeholder-gray-300 transition duration-200" placeholder="Nome da sua empresa" required>
@@ -583,13 +491,11 @@
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <!-- Email -->
                             <div>
                                 <label for="email" class="block text-sm font-medium mb-2">Email</label>
                                 <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-md border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent placeholder-gray-300 transition duration-200" placeholder="Seu melhor email" required>
                             </div>
 
-                            <!-- Telefone/WhatsApp -->
                             <div>
                                 <label for="phone" class="block text-sm font-medium mb-2">Telefone/WhatsApp</label>
                                 <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-md border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent placeholder-gray-300 transition duration-200" placeholder="Ex: (99) 99999-9999" required>
@@ -607,15 +513,13 @@
                             </div>
                         </div>
 
-                        <!-- Descrição do Problema -->
                         <div class="mb-6">
                             <label for="description" class="block text-sm font-medium mb-2">Descrição do Problema</label>
                             <textarea id="description" name="description" rows="5" class="w-full px-4 py-3 bg-white bg-opacity-20 rounded-md border border-white border-opacity-30 focus:outline-none focus:ring-2 focus:ring-accent placeholder-gray-300 transition duration-200" placeholder="Descreva brevemente sua necessidade ou problema" required></textarea>
                         </div>
 
-                        <!-- Botão de Envio -->
                         <div class="text-center">
-                            <button type="submit" class="btn-primary bg-accent hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg inline-block w-full">
+                            <button type="submit" class="btn-primary bg-accent hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg inline-block w-full transition-transform duration-300 hover:scale-105">
                                 Enviar Solicitação
                             </button>
                         </div>
@@ -624,11 +528,77 @@
             </div>
         </div>
     </div>
-</section>
+</section> 
 
-<!-- Overlay do Modal -->
+<footer class="bg-primary text-white">
+    <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center md:text-left">
+                <p class="text-gray-300 mb-4">
+                    Soluções inteligentes em automação industrial para otimizar seus processos e aumentar sua produtividade.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#" target="_blank" class="hover:text-accent transition-colors duration-300">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" class="hover:text-accent transition-colors duration-300">
+                        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                <ul class="space-y-2">
+                    <li><a href="#inicio" class="text-gray-300 hover:text-accent transition-colors duration-300">Início</a></li>
+                    <li><a href="#quem-somos" class="text-gray-300 hover:text-accent transition-colors duration-300">Quem Somos</a></li>
+                    <li><a href="#servicos" class="text-gray-300 hover:text-accent transition-colors duration-300">Serviços</a></li>
+                    <li><a href="#projetos" class="text-gray-300 hover:text-accent transition-colors duration-300">Projetos</a></li>
+                    <li><a href="#contato" class="text-gray-300 hover:text-accent transition-colors duration-300">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="text-center md:text-left">
+                <h3 class="text-xl font-bold mb-4">Contato</h3>
+                <div class="space-y-3">
+                    <p class="flex items-center justify-center md:justify-start">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        São Paulo, SP - Brasil
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        contato@alrautomacao.com.br
+                    </p>
+                    <p class="flex items-center justify-center md:justify-start">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        +55 (11) 99999-9999
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-primary">
+        <div class="container mx-auto px-4 py-4">
+            <p class="text-center text-gray-400 text-sm">
+                © 2025 ALR Automações Industrial. Todos os direitos reservados.
+            </p>
+        </div>
+    </div>
+</footer>
+
 <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
-    <!-- Modal de Resultado -->
     <div id="result-modal" class="bg-white p-8 rounded-lg shadow-2xl max-w-sm w-full text-center relative">
         <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
         <p id="modal-message" class="text-gray-700 mb-6"></p>
@@ -638,8 +608,35 @@
     </div>
 </div>
 
-<!-- Inclua jQuery antes do seu script principal -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="public/assets/js/index.js"></script>
+    <script src="public/assets/js/formIndex.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const intersectionCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-5');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(intersectionCallback, observerOptions);
+
+            const targets = document.querySelectorAll('.js-scroll-animate');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        });
+    </script>
 </body>
 </html>

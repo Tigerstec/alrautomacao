@@ -1,12 +1,11 @@
 <?php
-// Arquivo: process_form.php
+// Arquivo: process-form.php
 
 // Define o cabeçalho para que o navegador saiba que a resposta é JSON
 header('Content-Type: application/json');
 
-// Inclui o arquivo de conexão.
-// Assumindo que 'process_form.php' está no mesmo nível que 'app/' ou um nível acima.
-// Ajuste o caminho se necessário, com base na localização real do 'connection.php'
+// Inclui o arquivo de conexão PDO.
+// Ajuste o caminho se necessário.
 require_once 'app/config/connection.php'; 
 
 // Array para armazenar a resposta JSON
@@ -14,7 +13,7 @@ $response = [];
 
 // Verifica se a requisição é do tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Coleta e sanitiza os dados do formulário
+    // Coleta e sanitiza os dados do formulário (ótima prática, mantenha!)
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
@@ -32,54 +31,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ];
     } else {
         try {
-            // Prepara a query SQL para inserção usando mysqli
-            // O 's' no 'sssssss' representa o tipo de dado para cada parâmetro (string)
-            $stmt = $conn->prepare("INSERT INTO contact_submissions (name, company, email, phone, location, service, description) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            // 1. Prepara a query SQL para inserção com placeholders (?)
+            $sql = "INSERT INTO contact_submissions (name, company, email, phone, location, service, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            // Prepara a declaração usando o objeto $pdo da sua conexão
+            $stmt = $pdo->prepare($sql);
 
-            // Verifica se a preparação da query foi bem-sucedida
-            if ($stmt === false) {
-                // Erro na preparação da query
-                error_log("Erro na preparação da query: " . $conn->error);
-                $response = [
-                    'status' => 'error',
-                    'message' => 'Ocorreu um erro interno. Por favor, tente novamente mais tarde. (Erro P01)' // Código de erro para debug interno
-                ];
-            } else {
-                // Faz o bind dos parâmetros. Os tipos devem corresponder aos placeholders na query.
-                $stmt->bind_param('sssssss', $name, $company, $email, $phone, $location, $service, $description);
+            // 2. Executa a query passando os valores em um array
+            // O PDO associa cada '?' a um elemento do array, na ordem.
+            // Isso previne SQL Injection de forma segura.
+            $stmt->execute([$name, $company, $email, $phone, $location, $service, $description]);
 
-                // Executa a query
-                if ($stmt->execute()) {
-                    // Sucesso no registro
-                    $response = [
-                        'status' => 'success',
-                        'message' => 'Sua solicitação foi enviada com sucesso! Em breve entraremos em contato. 🎉'
-                    ];
-                } else {
-                    // Erro ao executar a query
-                    error_log("Erro ao executar a query: " . $stmt->error);
-                    $response = [
-                        'status' => 'error',
-                        'message' => 'Ocorreu um erro ao enviar sua solicitação. Tente novamente. (Erro D01)' // Código de erro para debug interno
-                    ];
-                }
+            // 3. Se a linha acima executou sem erros, a inserção foi bem-sucedida
+            $response = [
+                'status' => 'success',
+                'message' => 'Sua solicitação foi enviada com sucesso! Em breve entraremos em contato. 🎉'
+            ];
 
-                // Fecha o statement
-                $stmt->close();
-            }
+        } catch (PDOException $e) {
+            // Se qualquer erro de banco de dados ocorrer, o PDO vai lançar uma exceção
+            // e o código dentro do 'catch' será executado.
+            
+            // É uma boa prática registrar o erro real para análise interna
+            error_log("Erro no banco de dados: " . $e->getMessage());
 
-        } catch (Exception $e) {
-            // Log do erro (não exiba detalhes do erro para o usuário final em produção)
-            error_log("Erro geral: " . $e->getMessage());
+            // Envia uma mensagem genérica para o usuário
             $response = [
                 'status' => 'error',
-                'message' => 'Ocorreu um erro inesperado. Por favor, tente novamente mais tarde. (Erro G01)' // Código de erro para debug interno
+                'message' => 'Ocorreu um erro ao enviar sua solicitação. Por favor, tente novamente mais tarde.'
             ];
-        } finally {
-            // Garante que a conexão seja fechada, se estiver aberta
-            if (isset($conn) && $conn->ping()) {
-                $conn->close();
-            }
         }
     }
 } else {
@@ -89,6 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'message' => 'Método de requisição inválido.'
     ];
 }
+
+// Garante que o objeto PDO seja fechado (opcional, o PHP faz isso no final, mas é bom hábito)
+$pdo = null;
 
 // Retorna a resposta em formato JSON
 echo json_encode($response);
