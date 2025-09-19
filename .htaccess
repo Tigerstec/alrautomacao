@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RewriteBase /alrautomacao/
+
 DirectoryIndex ctrlRotas.php index.php index.html
 
 RewriteCond %{REQUEST_URI} !^/alrautomacao/public/ [NC]
