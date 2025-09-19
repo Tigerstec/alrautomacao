@@ -1,7 +1,7 @@
 <?php
 
 // Configurações do banco de dados MySQL
-$servername = "localhost";
+$servername = "177.136.241.55";
 $username = "ifhostgru_alrautomacao";
 $password = "ifsp@alr2025";
 $dbname = "alrbd";
@@ -20,4 +20,5 @@ try {
     // Em caso de falha, exibe o erro e encerra a execução
     die("Falha na conexão com o banco de dados: " . $e->getMessage());
 }
+
 
