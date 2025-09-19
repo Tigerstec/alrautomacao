@@ -4,7 +4,7 @@
 $servername = "177.136.241.55";
 $username = "ifhostgru_alrautomacao";
 $password = "ifsp@alr2025";
-$dbname = "alrbd";
+$dbname = "ifhostgru_alrautomacao";
 
 try {
     // Tenta estabelecer a conexão usando PDO
@@ -20,5 +20,6 @@ try {
     // Em caso de falha, exibe o erro e encerra a execução
     die("Falha na conexão com o banco de dados: " . $e->getMessage());
 }
+
 
 
