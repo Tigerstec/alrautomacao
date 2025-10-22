@@ -71,7 +71,7 @@
             </div>
 
             <div class="md:w-1/2 flex justify-center">
-            <img src="assets/images/engrenagem.gif" class="max-w-full h-auto rounded-lg " width="640" height="360">
+            <img src="../public/assets/images/engrenagem.gif" class="max-w-full h-auto rounded-lg " width="640" height="360">
             </div>
         </div>
     </div>
