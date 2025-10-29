@@ -1,18 +1,25 @@
 RewriteEngine On
 
+# Define o índice de diretório
 DirectoryIndex ctrlRotas.php index.php index.html
 
-RewriteCond %{REQUEST_URI} !^/alrautomacao/public/ [NC]
-RewriteCond %{REQUEST_URI} !^/alrautomacao/ctrlRotas\.php$ [NC]
+# 1. Proíbe o acesso direto a arquivos .php, exceto o controlador principal
+# Isso é importante para segurança.
+RewriteCond %{REQUEST_URI} !/ctrlRotas\.php$ [NC]
 RewriteRule \.php$ - [F,L]
 
+# 2. Permite o acesso direto a arquivos que existem fisicamente no disco
+# Isso cobre todos os seus assets em /public/ (css, js, imagens)
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
+# 3. Permite o acesso a diretórios que existem fisicamente
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteCond %{REQUEST_URI} !^/alrautomacao/?$ [NC]
+RewriteCond %{REQUEST_URI} !^/?$
 RewriteRule ^ - [L]
 
+# 4. Se o arquivo ou diretório NÃO existir, envia tudo para o ctrlRotas.php
+# Esta é a regra principal do roteamento
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ ctrlRotas.php?uri=$1 [QSA,L]
