@@ -249,6 +249,6 @@ $is_logged_in = isset($_SESSION['user_id']);
 
     <input type="hidden" id="editingId">
 
-    <script src=/public/assets/js/admin.js"></script>
+    <script src=../public/assets/js/admin.js"></script>
 </body>
 </html>
