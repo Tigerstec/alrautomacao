@@ -2,12 +2,17 @@
   "": "public/index.php", 
   "home": "public/index.php",
   "admin": "public/admin.php",
+  "public/admin": "public/admin.php",
   "contato": "app/controllers/ContatoController.php",
   "sobre": "app/controllers/SobreController.php",
   "processar-formulario": "app/controllers/process_form.php",
+  "public/processar-formulario": "app/controllers/process_form.php",
   "login": "public/admin.php",
   "public/LoginVerification": "../app/controllers/process_login.php",
   "authLogin": "app/controllers/auth.php",
   "logoutAction": "app/controllers/logout.php",
+  "public/logoutAction": "app/controllers/logout.php",
+  "api/login": "app/controllers/auth.php",
+  "api/json": "app/controllers/api.php",
     "...": "..."
 }

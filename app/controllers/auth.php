@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once '../config/connection.php';
+// [NOVO] - Usando __DIR__
+require_once(__DIR__ . '/../config/connection.php');
 
 header('Content-Type: application/json');
 
