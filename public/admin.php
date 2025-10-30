@@ -57,6 +57,9 @@ $is_logged_in = isset($_SESSION['user_id']);
                 <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition duration-200 font-medium">
                     Entrar no Sistema
                 </button>
+                 <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition duration-200 font-medium">
+                    <a href="home">Voltar para página principal</a>
+                </button>
             </form>
         </div>
     </div>
@@ -75,7 +78,7 @@ $is_logged_in = isset($_SESSION['user_id']);
                 
                 <div class="flex items-center space-x-4">
                     <span class="text-sm text-gray-600">Bem-vindo, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Admin'); ?></span>
-                    <a href="app/controllers/logout.php" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200">
+                    <a href="logoutAction" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-200">
                         Sair
                     </a>
                 </div>
@@ -246,6 +249,6 @@ $is_logged_in = isset($_SESSION['user_id']);
 
     <input type="hidden" id="editingId">
 
-    <script src="assets/js/admin.js"></script>
+    <script src="public/assets/js/admin.js"></script>
 </body>
 </html>

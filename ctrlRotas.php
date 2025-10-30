@@ -51,11 +51,17 @@ if (file_exists($uri) && !is_dir($uri)) {
 
 /**
  * Função responsável por mapear e carregar as rotas definidas no arquivo JSON.
- * @param string $uri A URI requisitada pelo usuário.
  */
 function abreRota($uri) {
-    // Carrega o arquivo de rotas
-    $rotas = json_decode(file_get_contents("app/rotasTest.json"), true);
+    // Carrega o arquivo de rotas usando __DIR__ para um caminho absoluto
+    $rotasPath = __DIR__ . "/app/rotasTest.json";
+    
+    if (!file_exists($rotasPath)) {
+        http_response_code(500);
+        die("500 - Arquivo de configuração de rotas não encontrado.");
+    }
+
+    $rotas = json_decode(file_get_contents($rotasPath), true);
     $success = false;
 
     // A URI vazia ('') será agora usada para procurar a rota padrão no JSON.
@@ -64,7 +70,8 @@ function abreRota($uri) {
     foreach ($rotas as $key => $value) {
         if ($uri === $key) {
             $success = true;
-            require $value;
+            // Use __DIR__ aqui também para garantir que o require funcione
+            require __DIR__ . "/" . $value; 
             break;
         }
     }
@@ -74,6 +81,7 @@ function abreRota($uri) {
         die("404 - Rota ou arquivo não encontrado.");
     }
 }
+
 
 // Função auxiliar para determinar o tipo MIME do arquivo
 if (!function_exists('mime_content_type')) {
