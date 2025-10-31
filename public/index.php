@@ -13,7 +13,7 @@
     <div id="header-container" class="opacity-90 !bg-light border-2 border-black max-w-7xl mx-auto px-4 py-4 mt-4 -black rounded-3xl text-white shadow-md transition-all duration-500">
         <div class="flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <img src="public/assets/images/logo.png" alt="Logo" class="h-12">
+                <img src="../public/assets/images/logo.png" alt="Logo" class="h-12">
             </div>
             
             <div class="hidden md:flex items-center space-x-8">
@@ -71,7 +71,7 @@
             </div>
 
             <div class="md:w-1/2 flex justify-center">
-            <img src="public/assets/images/engrenagem.gif" class="max-w-full h-auto rounded-lg " width="640" height="360">
+            <img src="../public/assets/images/engrenagem.gif" class="max-w-full h-auto rounded-lg " width="640" height="360">
             </div>
         </div>
     </div>
@@ -158,7 +158,7 @@
     <section id="servicos" class="relative py-20 overflow-hidden">
     <div class="absolute inset-0 z-0">
         <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted>
-            <source src="public/assets/images/alr.mp4" type="video/mp4">
+            <source src="../public/assets/images/alr.mp4" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-black opacity-50"></div>
     </div>
@@ -250,7 +250,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="public/assets/images/bausano.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/bausano.png">
                         </div>
                     </div>
                     <div class="p-6">
@@ -268,7 +268,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="public/assets/images/escania.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/escania.png">
                         </div>
                     </div>
                     <div class="p-6">
@@ -286,7 +286,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="public/assets/images/painelcontrole.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/painelcontrole.png">
                         </div>
                     </div>
                     <div class="p-6">
@@ -304,7 +304,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="public/assets/images/extrusora.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/extrusora.png">
                         </div>
                     </div>
                     <div class="p-6">
@@ -322,7 +322,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="public/assets/images/lavagem.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/lavagem.png">
                         </div>
                     </div>
                     <div class="p-6">
@@ -598,8 +598,8 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="public/assets/js/index.js"></script>
-    <script src="public/assets/js/formIndex.js"></script>
+    <script src="../public/assets/js/index.js"></script>
+    <script src="../public/assets/js/formIndex.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
