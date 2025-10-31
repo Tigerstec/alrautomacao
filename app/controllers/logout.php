@@ -8,5 +8,5 @@ session_start();
 session_destroy();
 
 // Redireciona o usuário de volta para a página de login
-header('Location: /alrautomacao/login');
+header('Location: /admin');
 exit();
