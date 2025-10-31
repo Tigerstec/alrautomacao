@@ -3,7 +3,7 @@ const editingIdField = document.getElementById('editingId');
 
 // --- FUNÇÃO AUXILIAR PARA API ---
 async function apiRequest(entity, method = 'GET', data = null, id = null) {
-    let url = `/alrautomacao/api/json?entity=${entity}`;
+    let url = `/api/json?entity=${entity}`;
     if (id) { url += `&id=${id}`; }
     const options = { method, headers: { 'Content-Type': 'application/json' } };
     if (data) { options.body = JSON.stringify(data); }
@@ -34,7 +34,7 @@ if (loginForm) {
         const errorDiv = document.getElementById('loginError');
         errorDiv.classList.add('hidden');
         try {
-            const response = await fetch('/alrautomacao/api/login', { 
+            const response = await fetch('/api/login', { 
                 method: 'POST', 
                 headers: { 'Content-Type': 'application/json' }, 
                 body: JSON.stringify({ username, password }) 
