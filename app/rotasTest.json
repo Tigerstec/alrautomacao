@@ -11,7 +11,7 @@
   "authLogin": "app/controllers/auth.php",
   "logoutAction": "app/controllers/logout.php",
   "public/logoutAction": "app/controllers/logout.php",
-  "api/login": "../app/controllers/auth.php",
+  "api/login": "app/controllers/auth.php",
   "api/json": "app/controllers/api.php",
     "...": "..."
 }
