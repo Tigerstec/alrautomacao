@@ -1,5 +1,3 @@
-# 1. Desabilita a listagem de diretórios (Impede ver o conteúdo de /app, /public)
-Options -Indexes
 
 RewriteEngine On
 
