@@ -12,7 +12,7 @@
   "authLogin": "app/controllers/auth.php",
   "logoutAction": "app/controllers/logout.php",
   "public/logoutAction": "app/controllers/logout.php",
-  "alrautomacao/api/login": "app/controllers/auth.php",
-  "alrautomacao/api/json": "app/controllers/api.php",
+  "api/login": "app/controllers/auth.php",
+  "api/json": "app/controllers/api.php",
     "...": "..."
 }
