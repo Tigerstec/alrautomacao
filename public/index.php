@@ -231,7 +231,7 @@
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 js-scroll-animate opacity-0 translate-y-5 transition-all duration-700 ease-out">
                     <div class="h-56 relative">
                         <div class="flex justify-center h-full w-full">
-                            <img class="w-full h-full object-cover" src="../../alrautomacao /public/assets/images/panasonic.png">
+                            <img class="w-full h-full object-cover" src="../public/assets/images/panasonic.png">
                         </div>
                     </div>
                     <div class="p-6">
