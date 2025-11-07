@@ -1,7 +1,7 @@
 <?php
 
 // Configurações do banco de dados MySQL
-$servername = "177.136.241.55";
+$servername = "40.160.64.65";
 $username = "ifhostgru_alrautomacao";
 $password = "ifsp@alr2025";
 $dbname = "ifhostgru_alrautomacao";
