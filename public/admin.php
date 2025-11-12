@@ -252,23 +252,10 @@ $is_logged_in = isset($_SESSION['user_id']);
                             </div>
                         </form>
                     </div>
-                    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-sm border">
                         <div class="p-4 md:p-6">
                             <h3 class="text-base md:text-lg font-semibold mb-4">Orçamentos Cadastrados</h3>
-                            <div class="overflow-x-auto -mx-4 md:mx-0">
-                                <table class="w-full min-w-[640px]">
-                                    <thead>
-                                        <tr class="border-b bg-gray-50">
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Cliente</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Email</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Valor</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Status</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="budgetsList"></tbody>
-                                </table>
-                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4" id="budgetsList"></div>
                         </div>
                     </div>
                 </div>
@@ -370,23 +357,10 @@ $is_logged_in = isset($_SESSION['user_id']);
                             </div>
                         </form>
                     </div>
-                    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
+                    <div class="bg-white rounded-xl shadow-sm border">
                         <div class="p-4 md:p-6">
                             <h3 class="text-base md:text-lg font-semibold mb-4">Agendamentos</h3>
-                            <div class="overflow-x-auto -mx-4 md:mx-0">
-                                <table class="w-full min-w-[640px]">
-                                    <thead>
-                                        <tr class="border-b bg-gray-50">
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Cliente</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Serviço</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Data/Hora</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Status</th>
-                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="appointmentsList"></tbody>
-                                </table>
-                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4" id="appointmentsList"></div>
                         </div>
                     </div>
                 </div>

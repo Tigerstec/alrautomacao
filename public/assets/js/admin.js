@@ -122,24 +122,30 @@ async function loadAndRenderBudgets() {
     } 
 }
 
-/** Desenha a lista de orçamentos na tabela */
+/** Desenha a lista de orçamentos em cards responsivos */
 function renderBudgets(budgets) { 
-    const tbody = document.getElementById('budgetsList'); 
+    const container = document.getElementById('budgetsList'); 
     if (!budgets || budgets.length === 0) { 
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-gray-500">Nenhum orçamento</td></tr>'; 
+        container.innerHTML = '<div class="text-center py-8 text-gray-500 md:col-span-2 lg:col-span-3">Nenhum orçamento cadastrado</div>'; 
         return; 
     } 
-    tbody.innerHTML = budgets.map(b => ` 
-        <tr class="border-b hover:bg-gray-50"> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">${b.cliente}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">${b.email}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">R$ ${parseFloat(b.valor).toFixed(2)}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4"><span class="px-2 py-1 text-xs rounded-full ${b.status === 'Aprovado' ? 'bg-green-100 text-green-800' : b.status === 'Rejeitado' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'}">${b.status}</span></td> 
-            <td class="py-2 md:py-3 px-2 md:px-4"> 
-                <button onclick='editBudget(${JSON.stringify(b)})' class="text-blue-600 hover:text-blue-800 mr-1 md:mr-2 text-xs md:text-sm">Editar</button> 
-                <button onclick="deleteBudget(${b.id})" class="text-red-600 hover:text-red-800 text-xs md:text-sm">Excluir</button> 
-            </td> 
-        </tr>`).join(''); 
+    container.innerHTML = budgets.map(b => ` 
+        <div class="bg-gray-50 p-4 rounded-lg border hover:shadow-md transition-shadow"> 
+            <div class="flex justify-between items-start mb-3">
+                <h4 class="font-semibold text-gray-800 text-base">${b.cliente}</h4> 
+                <span class="px-2 py-1 text-xs rounded-full ${b.status === 'Aprovado' ? 'bg-green-100 text-green-800' : b.status === 'Rejeitado' ? 'bg-red-100 text-red-800' : 'bg-yellow-100 text-yellow-800'}">${b.status}</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-2">${b.email}</p> 
+            <p class="text-xs text-gray-500 mb-3">${b.telefone}</p> 
+            <p class="text-sm text-gray-700 mb-3 line-clamp-2">${b.descricao || ''}</p> 
+            <div class="flex justify-between items-center mb-3"> 
+                <span class="text-lg font-bold text-green-600">R$ ${parseFloat(b.valor).toFixed(2)}</span> 
+            </div> 
+            <div class="flex gap-2"> 
+                <button onclick='editBudget(${JSON.stringify(b)})' class="flex-1 text-xs bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition-colors">Editar</button> 
+                <button onclick="deleteBudget(${b.id})" class="flex-1 text-xs bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors">Excluir</button> 
+            </div> 
+        </div>`).join(''); 
 }
 
 /** * [CORRIGIDO] Preenche o formulário para EDIÇÃO de um orçamento.
@@ -280,24 +286,29 @@ async function loadAndRenderAppointments() {
     } 
 }
 
-/** Desenha a lista de agendamentos na tabela */
+/** Desenha a lista de agendamentos em cards responsivos */
 function renderAppointments(appointments) { 
-    const tbody = document.getElementById('appointmentsList'); 
+    const container = document.getElementById('appointmentsList'); 
     if (!appointments || appointments.length === 0) { 
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-gray-500">Nenhum agendamento</td></tr>'; 
+        container.innerHTML = '<div class="text-center py-8 text-gray-500 md:col-span-2 lg:col-span-3">Nenhum agendamento</div>'; 
         return; 
     } 
-    tbody.innerHTML = appointments.map(a => ` 
-        <tr class="border-b hover:bg-gray-50"> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">${a.cliente}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">${a.serviceName}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">${new Date(a.data_agendamento + 'T00:00:00').toLocaleDateString('pt-BR')} ${a.hora_agendamento.substring(0, 5)}</td> 
-            <td class="py-2 md:py-3 px-2 md:px-4"><span class="px-2 py-1 text-xs rounded-full ${getStatusColor(a.status)}">${a.status}</span></td> 
-            <td class="py-2 md:py-3 px-2 md:px-4"> 
-                <button onclick='editAppointment(${JSON.stringify(a)})' class="text-blue-600 hover:text-blue-800 mr-1 md:mr-2 text-xs md:text-sm">Editar</button> 
-                <button onclick="deleteAppointment(${a.id})" class="text-red-600 hover:text-red-800 text-xs md:text-sm">Excluir</button> 
-            </td> 
-        </tr>`).join(''); 
+    container.innerHTML = appointments.map(a => ` 
+        <div class="bg-gray-50 p-4 rounded-lg border hover:shadow-md transition-shadow"> 
+            <div class="flex justify-between items-start mb-3">
+                <h4 class="font-semibold text-gray-800 text-base">${a.cliente}</h4> 
+                <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(a.status)}">${a.status}</span>
+            </div>
+            <p class="text-sm font-medium text-indigo-600 mb-2">${a.serviceName}</p> 
+            <p class="text-xs text-gray-600 mb-2">📅 ${new Date(a.data_agendamento + 'T00:00:00').toLocaleDateString('pt-BR')}</p> 
+            <p class="text-xs text-gray-600 mb-2">🕐 ${a.hora_agendamento.substring(0, 5)}</p> 
+            <p class="text-xs text-gray-600 mb-3">📞 ${a.telefone}</p> 
+            ${a.observacoes ? `<p class="text-sm text-gray-700 mb-3 line-clamp-2">${a.observacoes}</p>` : ''} 
+            <div class="flex gap-2"> 
+                <button onclick='editAppointment(${JSON.stringify(a)})' class="flex-1 text-xs bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition-colors">Editar</button> 
+                <button onclick="deleteAppointment(${a.id})" class="flex-1 text-xs bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors">Excluir</button> 
+            </div> 
+        </div>`).join(''); 
 }
 
 /** Função auxiliar para retornar a cor do status */
