@@ -1,0 +1,274 @@
+/* Estilos Responsivos para o Painel Admin */
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+/* Menu Mobile */
+#mobileMenuBtn {
+    display: none;
+}
+
+/* Responsividade para Tablets e Mobile */
+@media (max-width: 768px) {
+    /* Menu Hamburguer */
+    #mobileMenuBtn {
+        display: block;
+    }
+    
+    /* Sidebar Mobile */
+    #sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        z-index: 50;
+        transition: left 0.3s ease;
+        width: 280px;
+        max-width: 85vw;
+        overflow-y: auto;
+    }
+    
+    #sidebar.active {
+        left: 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Overlay */
+    #mobileOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+    }
+    
+    #mobileOverlay.active {
+        display: block;
+    }
+    
+    /* Tabelas Responsivas */
+    table {
+        font-size: 0.875rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    table thead {
+        display: table-header-group;
+    }
+    
+    table tbody {
+        display: table-row-group;
+    }
+    
+    table th,
+    table td {
+        padding: 0.5rem !important;
+        font-size: 0.75rem;
+    }
+    
+    /* Botões de Ação em Tabelas */
+    table button,
+    table a {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem !important;
+        white-space: nowrap;
+    }
+    
+    /* Cards de Serviço */
+    .service-card {
+        min-width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    /* Formulários */
+    form input,
+    form select,
+    form textarea,
+    form button {
+        font-size: 16px !important; /* Previne zoom no iOS */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+    
+    /* Inputs com melhor usabilidade em mobile */
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"] {
+        min-height: 44px;
+    }
+    
+    /* Botões maiores para melhor toque */
+    button,
+    .btn {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    /* Grid de Cards */
+    .grid {
+        gap: 1rem;
+    }
+    
+    /* Padding do Main */
+    main {
+        padding: 1rem !important;
+    }
+    
+    /* Cards de Estatísticas */
+    .bg-white.p-6 {
+        padding: 1rem !important;
+    }
+}
+
+/* Telas Muito Pequenas (< 640px) */
+@media (max-width: 640px) {
+    /* Reduz espaçamentos */
+    .grid-cols-1 {
+        gap: 0.75rem;
+    }
+    
+    /* Títulos menores */
+    h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.75rem !important;
+    }
+    
+    h3 {
+        font-size: 1.1rem !important;
+        line-height: 1.5rem !important;
+    }
+    
+    /* Padding geral reduzido */
+    .p-6 {
+        padding: 1rem !important;
+    }
+    
+    .p-4 {
+        padding: 0.75rem !important;
+    }
+    
+    /* Botões ocupam toda a largura */
+    .flex.space-x-4 {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .flex.space-x-4 button {
+        width: 100%;
+    }
+    
+    /* Cards de estatísticas */
+    .text-2xl {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Ícones menores */
+    svg.w-6 {
+        width: 1.25rem !important;
+        height: 1.25rem !important;
+    }
+    
+    /* Esconde colunas menos importantes em mobile */
+    table th:nth-child(2),
+    table td:nth-child(2) {
+        display: none;
+    }
+}
+
+/* Landscape em Mobile */
+@media (max-width: 896px) and (orientation: landscape) {
+    #sidebar {
+        width: 250px;
+    }
+    
+    main {
+        padding: 0.75rem !important;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Melhorias de Performance */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+    touch-action: manipulation;
+}
+
+/* Scroll suave */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Previne seleção de texto acidental em elementos de UI */
+.nav-btn,
+button,
+.btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Ajustes de Acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode Support (Opcional) */
+@media (prefers-color-scheme: dark) {
+    /* Adicione aqui os estilos para dark mode se necessário */
+}
+
+/* Ajustes específicos para iOS */
+@supports (-webkit-touch-callout: none) {
+    input[type="date"],
+    input[type="time"] {
+        min-height: 44px;
+    }
+}
