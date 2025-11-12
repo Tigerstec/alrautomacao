@@ -225,21 +225,47 @@ $is_logged_in = isset($_SESSION['user_id']);
                     </div>
                     <div id="budgetForm" class="hidden bg-white p-4 md:p-6 rounded-xl shadow-sm border mb-4 md:mb-6">
                         <h3 class="text-base md:text-lg font-semibold mb-4">Criar Novo Orçamento</h3>
-                        <form id="budgetFormData" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Cliente</label><input type="text" id="budgetClient" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Email</label><input type="email" id="budgetEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label><input type="tel" id="budgetPhone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Valor (R$)</label><input type="number" id="budgetValue" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></div>
-                            <div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label><textarea id="budgetDescription" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></textarea></div>
-                            <div class="md:col-span-2 flex space-x-4"><button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Salvar Orçamento</button><button type="button" onclick="hideBudgetForm()" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600">Cancelar</button></div>
+                        <form id="budgetFormData" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Cliente</label>
+                                <input type="text" id="budgetClient" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="budgetEmail" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                                <input type="tel" id="budgetPhone" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Valor (R$)</label>
+                                <input type="number" id="budgetValue" step="0.01" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                                <textarea id="budgetDescription" rows="3" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></textarea>
+                            </div>
+                            <div class="md:col-span-2 flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                <button type="submit" class="w-full sm:w-auto bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-green-700 transition duration-200">Salvar Orçamento</button>
+                                <button type="button" onclick="hideBudgetForm()" class="w-full sm:w-auto bg-gray-500 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-gray-600 transition duration-200">Cancelar</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="bg-white rounded-xl shadow-sm border">
+                    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
                         <div class="p-4 md:p-6">
                             <h3 class="text-base md:text-lg font-semibold mb-4">Orçamentos Cadastrados</h3>
                             <div class="overflow-x-auto -mx-4 md:mx-0">
                                 <table class="w-full min-w-[640px]">
-                                    <thead><tr class="border-b"><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Cliente</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Email</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Valor</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Status</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Ações</th></tr></thead>
+                                    <thead>
+                                        <tr class="border-b bg-gray-50">
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Cliente</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Email</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Valor</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Status</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Ações</th>
+                                        </tr>
+                                    </thead>
                                     <tbody id="budgetsList"></tbody>
                                 </table>
                             </div>
@@ -250,17 +276,42 @@ $is_logged_in = isset($_SESSION['user_id']);
                 <div id="servicesSection" class="section hidden">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 md:mb-6 gap-3">
                         <h2 class="text-xl md:text-2xl font-bold text-gray-800">Gestão de Serviços</h2>
-                        <button onclick="showServiceForm()" class="bg-indigo-600 text-white px-3 py-2 md:px-4 md:py-2 text-sm rounded-lg hover:bg-indigo-700 w-full sm:w-auto">+ Novo Serviço</button>
+                        <button onclick="showServiceForm()" class="bg-indigo-600 text-white px-3 py-2 md:px-4 md:py-2 text-sm rounded-lg hover:bg-indigo-700 transition duration-200 w-full sm:w-auto">+ Novo Serviço</button>
                     </div>
                     <div id="serviceForm" class="hidden bg-white p-4 md:p-6 rounded-xl shadow-sm border mb-4 md:mb-6">
                         <h3 class="text-base md:text-lg font-semibold mb-4">Criar Novo Serviço</h3>
-                        <form id="serviceFormData" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Nome do Serviço</label><input type="text" id="serviceName" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Categoria</label><select id="serviceCategory" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required><option value="">Selecione</option><option value="consultoria">Consultoria</option><option value="desenvolvimento">Desenvolvimento</option><option value="design">Design</option><option value="marketing">Marketing</option><option value="outros">Outros</option></select></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Preço (R$)</label><input type="number" id="servicePrice" step="0.01" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Duração (minutos)</label><input type="number" id="serviceDuration" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700 mb-2">Descrição</label><textarea id="serviceDescription" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg"></textarea></div>
-                            <div class="md:col-span-2 flex space-x-4"><button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Salvar Serviço</button><button type="button" onclick="hideServiceForm()" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600">Cancelar</button></div>
+                        <form id="serviceFormData" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Nome do Serviço</label>
+                                <input type="text" id="serviceName" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Categoria</label>
+                                <select id="serviceCategory" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                                    <option value="">Selecione</option>
+                                    <option value="consultoria">Consultoria</option>
+                                    <option value="desenvolvimento">Desenvolvimento</option>
+                                    <option value="design">Design</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="outros">Outros</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Preço (R$)</label>
+                                <input type="number" id="servicePrice" step="0.01" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Duração (minutos)</label>
+                                <input type="number" id="serviceDuration" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Descrição</label>
+                                <textarea id="serviceDescription" rows="3" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div class="md:col-span-2 flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                <button type="submit" class="w-full sm:w-auto bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-green-700 transition duration-200">Salvar Serviço</button>
+                                <button type="button" onclick="hideServiceForm()" class="w-full sm:w-auto bg-gray-500 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-gray-600 transition duration-200">Cancelar</button>
+                            </div>
                         </form>
                     </div>
                     <div class="bg-white rounded-xl shadow-sm border">
@@ -274,27 +325,65 @@ $is_logged_in = isset($_SESSION['user_id']);
                 <div id="appointmentsSection" class="section hidden">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 md:mb-6 gap-3">
                         <h2 class="text-xl md:text-2xl font-bold text-gray-800">Agendamentos de Serviços</h2>
-                        <button onclick="showAppointmentForm()" class="bg-indigo-600 text-white px-3 py-2 md:px-4 md:py-2 text-sm rounded-lg hover:bg-indigo-700 w-full sm:w-auto">+ Novo Agendamento</button>
+                        <button onclick="showAppointmentForm()" class="bg-indigo-600 text-white px-3 py-2 md:px-4 md:py-2 text-sm rounded-lg hover:bg-indigo-700 transition duration-200 w-full sm:w-auto">+ Novo Agendamento</button>
                     </div>
                     <div id="appointmentForm" class="hidden bg-white p-4 md:p-6 rounded-xl shadow-sm border mb-4 md:mb-6">
                         <h3 class="text-base md:text-lg font-semibold mb-4">Agendar Serviço</h3>
-                        <form id="appointmentFormData" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Cliente</label><input type="text" id="appointmentClient" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label><input type="tel" id="appointmentPhone" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Serviço</label><select id="appointmentService" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></select></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Data</label><input type="date" id="appointmentDate" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Horário</label><input type="time" id="appointmentTime" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required></div>
-                            <div><label class="block text-sm font-medium text-gray-700 mb-2">Status</label><select id="appointmentStatus" class="w-full px-3 py-2 border border-gray-300 rounded-lg" required><option value="Agendado">Agendado</option><option value="Confirmado">Confirmado</option><option value="Em Andamento">Em Andamento</option><option value="Concluído">Concluído</option><option value="Cancelado">Cancelado</option></select></div>
-                            <div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700 mb-2">Observações</label><textarea id="appointmentNotes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg"></textarea></div>
-                            <div class="md:col-span-2 flex space-x-4"><button type="submit" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Salvar Agendamento</button><button type="button" onclick="hideAppointmentForm()" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600">Cancelar</button></div>
+                        <form id="appointmentFormData" class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Cliente</label>
+                                <input type="text" id="appointmentClient" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                                <input type="tel" id="appointmentPhone" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Serviço</label>
+                                <select id="appointmentService" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></select>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Data</label>
+                                <input type="date" id="appointmentDate" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Horário</label>
+                                <input type="time" id="appointmentTime" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Status</label>
+                                <select id="appointmentStatus" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                                    <option value="Agendado">Agendado</option>
+                                    <option value="Confirmado">Confirmado</option>
+                                    <option value="Em Andamento">Em Andamento</option>
+                                    <option value="Concluído">Concluído</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Observações</label>
+                                <textarea id="appointmentNotes" rows="3" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <div class="md:col-span-2 flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                <button type="submit" class="w-full sm:w-auto bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-green-700 transition duration-200">Salvar Agendamento</button>
+                                <button type="button" onclick="hideAppointmentForm()" class="w-full sm:w-auto bg-gray-500 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-lg hover:bg-gray-600 transition duration-200">Cancelar</button>
+                            </div>
                         </form>
                     </div>
-                    <div class="bg-white rounded-xl shadow-sm border">
+                    <div class="bg-white rounded-xl shadow-sm border overflow-hidden">
                         <div class="p-4 md:p-6">
                             <h3 class="text-base md:text-lg font-semibold mb-4">Agendamentos</h3>
                             <div class="overflow-x-auto -mx-4 md:mx-0">
                                 <table class="w-full min-w-[640px]">
-                                    <thead><tr class="border-b"><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Cliente</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Serviço</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Data/Hora</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Status</th><th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm">Ações</th></tr></thead>
+                                    <thead>
+                                        <tr class="border-b bg-gray-50">
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Cliente</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Serviço</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Data/Hora</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Status</th>
+                                            <th class="text-left py-2 md:py-3 px-2 md:px-4 text-xs md:text-sm font-semibold text-gray-700">Ações</th>
+                                        </tr>
+                                    </thead>
                                     <tbody id="appointmentsList"></tbody>
                                 </table>
                             </div>

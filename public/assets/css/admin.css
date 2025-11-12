@@ -118,12 +118,20 @@
         appearance: none;
     }
     
+    /* Labels menores em mobile */
+    form label {
+        font-size: 0.75rem !important;
+    }
+    
     /* Inputs com melhor usabilidade em mobile */
     input[type="date"],
     input[type="time"],
     input[type="number"],
     input[type="tel"],
-    input[type="email"] {
+    input[type="email"],
+    input[type="text"],
+    select,
+    textarea {
         min-height: 44px;
     }
     
@@ -183,8 +191,21 @@
         gap: 0.75rem;
     }
     
-    .flex.space-x-4 button {
+    .flex.space-x-4 button,
+    .flex.gap-2 button,
+    .flex.sm\\:gap-4 button {
         width: 100%;
+    }
+    
+    /* Formulários em tela cheia */
+    form.grid {
+        gap: 0.75rem !important;
+    }
+    
+    form input,
+    form select,
+    form textarea {
+        font-size: 14px !important;
     }
     
     /* Cards de estatísticas */
@@ -202,6 +223,30 @@
     table th:nth-child(2),
     table td:nth-child(2) {
         display: none;
+    }
+    
+    /* Ajusta botões de ação nas tabelas */
+    table button,
+    table a {
+        padding: 0.35rem 0.5rem !important;
+        font-size: 0.7rem !important;
+        margin: 0.1rem !important;
+        display: inline-block;
+    }
+    
+    /* Melhora o scroll horizontal das tabelas */
+    .overflow-x-auto {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .overflow-x-auto::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
     }
 }
 
