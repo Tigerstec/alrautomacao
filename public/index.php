@@ -23,9 +23,6 @@
                 <a href="#servicos" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Serviços</a>
                 <a href="#projetos" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Projetos</a>
                 <a href="#contato" class="text-black hover:text-gray-400 font-medium transition-transform duration-200 hover:-translate-y-0.5">Contato</a>
-                <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 hover:scale-105">
-                    <a href="admin">Admin</a>
-                </button>
             </div>
             
             <div class="md:hidden">
