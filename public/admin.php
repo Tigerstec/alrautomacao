@@ -10,6 +10,7 @@ $is_logged_in = isset($_SESSION['user_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo - Sistema de Gestão</title>
+    <link rel="shortcut icon" href="../public/assets/images/logoweb.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .fade-in {
