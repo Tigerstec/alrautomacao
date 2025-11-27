@@ -157,7 +157,7 @@ function renderBudgets(budgets) {
             <p class="text-xs text-gray-500 mb-3">${b.telefone}</p> 
             <p class="text-sm text-gray-700 mb-3 line-clamp-2">${b.descricao || ''}</p> 
             <div class="flex justify-between items-center mb-3"> 
-                <span class="text-lg font-bold text-green-600">R$ ${parseFloat(b.valor).toFixed(2)}</span> 
+                    <span class="text-lg font-bold text-green-600">R$ ${parseFloat(b.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span> 
             </div> 
             <div class="flex gap-2"> 
                 <button onclick='editBudget(${JSON.stringify(b)})' class="flex-1 text-xs bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition-colors">Editar</button> 
@@ -233,7 +233,7 @@ function renderServices(services) {
             <h4 class="font-semibold text-gray-800">${s.nome}</h4> 
             <p class="text-sm text-gray-600 mb-3">${s.descricao || ''}</p> 
             <div class="flex justify-between items-center mb-3"> 
-                <span class="text-lg font-bold text-green-600">R$ ${parseFloat(s.preco).toFixed(2)}</span> 
+                <span class="text-lg font-bold text-green-600">R$ ${parseFloat(s.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
                 <span class="text-sm text-gray-500">${s.duracao} min</span> 
             </div> 
             <div class="flex space-x-2"> 
@@ -293,7 +293,7 @@ async function updateAppointmentServiceOptions() {
     select.innerHTML = '<option value="">Selecione um serviço</option>'; 
     if (services) { 
         services.forEach(service => { 
-            select.innerHTML += `<option value="${service.id}">${service.nome} - R$ ${parseFloat(service.preco).toFixed(2)}</option>`; 
+            select.innerHTML += `<option value="${service.id}">${service.nome} - R$ ${parseFloat(service.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</option>`;
         }); 
     } 
 }
