@@ -11,16 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 
 // --- CAMINHOS RELATIVOS (Baseados na sua estrutura de pastas) ---
 // Usa __DIR__ para navegar a partir da pasta 'controllers'
-$arquivo = __DIR__ . '../PHPMailer/src/Exception.php';
-$caminhoReal = realpath($arquivo);
-
-echo "<script>
-    console.group('🔍 DEBUG PHP');
-    console.log('Onde estou:', '" . str_replace('\\', '/', __DIR__) . "');
-    console.log('Tentando abrir:', '" . str_replace('\\', '/', $arquivo) . "');
-    console.log('Existe de verdade?', '" . ($caminhoReal ? '✅ SIM: ' . str_replace('\\', '/', $caminhoReal) : '❌ NÃO ENCONTRADO') . "');
-    console.groupEnd();
-</script>";
+require_once __DIR__ . '/../../PHPMailer/src/Exception.php';
 require_once __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
 require_once __DIR__ . '/../../PHPMailer/src/SMTP.php';
 require_once __DIR__ . '/../config/connection.php'; 
