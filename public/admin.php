@@ -240,7 +240,7 @@ $is_logged_in = isset($_SESSION['user_id']);
                             </div>
                             <div>
                                 <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Valor (R$)</label>
-                                <input type="text" id="budgetValue" name="budgetValue" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                               <input type="number" id="budgetValue" step="0.01" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
                             <div class="md:col-span-2">
                                 <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Descrição</label>
                                 <textarea id="budgetDescription" rows="3" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></textarea>
