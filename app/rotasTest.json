@@ -15,5 +15,6 @@
   "api/json": "app/controllers/api.php",
   "PHPMailer/Exception": "PHPMailer/src/Exception.php",
   "public": "public/index.php",
+  "gerarhash": "app/config/gerar_hash.php",
     "...": "..."
 }
