@@ -170,15 +170,6 @@ async function deleteBudget(id) {
     } 
 }
 
-//Máscara para valores
-$(document).ready(function(){
-        // Aplica a máscara de dinheiro ao campo com o ID 'campo-valor'
-        $('#budgetValue').mask('000.000.000.000.000,00', {
-            reverse: true, // Começa a aplicar a máscara da direita para a esquerda (necessário para valores monetários)
-            placeholder: '0,00'
-        });
-    });
-
 // ===================================================================
 // 🛠️ SERVIÇOS (Services)
 // ===================================================================
