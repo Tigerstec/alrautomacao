@@ -598,8 +598,8 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../alrautomacao/public/assets/js/index.js"></script>
-    <script src="../alrautomacao/public/assets/js/formIndex.js"></script>
+    <script src="../public/assets/js/index.js"></script>
+    <script src="../public/assets/js/formIndex.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
