@@ -93,6 +93,24 @@ async function updateOverview() {
     }
 }
 
+// --- FUNÇÕES DE FORMATAÇÃO DE MOEDA ---
+
+// Formata visualmente enquanto digita (1200000 -> 12.000,00)
+function formatarMoeda(i) {
+    let v = i.value.replace(/\D/g,'');
+    v = (v/100).toFixed(2) + '';
+    v = v.replace(".", ",");
+    v = v.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    i.value = v;
+}
+
+// Converte o valor formatado (12.000,00) para float (12000.00) para enviar à API
+function converterMoedaParaFloat(valor) {
+    if (!valor) return 0;
+    // Remove pontos e troca vírgula por ponto
+    return parseFloat(valor.replace(/\./g, '').replace(',', '.'));
+}
+
 // --- FUNÇÕES CRUD (ORÇAMENTOS, SERVIÇOS, AGENDAMENTOS) ---
 
 // ===================================================================
@@ -156,10 +174,13 @@ function editBudget(budget) {
     document.getElementById('budgetClient').value = budget.cliente; 
     document.getElementById('budgetEmail').value = budget.email; 
     document.getElementById('budgetPhone').value = budget.telefone; 
-    document.getElementById('budgetValue').value = budget.valor; 
+    let valorFormatado = parseFloat(budget.valor).toFixed(2).replace('.', ',');
+    valorFormatado = valorFormatado.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    document.getElementById('budgetValue').value = valorFormatado; 
+    
     document.getElementById('budgetDescription').value = budget.descricao; 
-    document.getElementById('budgetForm').classList.remove('hidden'); // Mostra o form diretamente
-    window.scrollTo(0, 0); 
+    document.getElementById('budgetForm').classList.remove('hidden'); 
+    window.scrollTo(0, 0);
 }
 
 /** Deleta um orçamento pelo ID */
@@ -229,10 +250,12 @@ function editService(service) {
     editingIdField.value = service.id; 
     document.getElementById('serviceName').value = service.nome; 
     document.getElementById('serviceCategory').value = service.categoria; 
-    document.getElementById('servicePrice').value = service.preco; 
+    let valorFormatado = parseFloat(service.preco).toFixed(2).replace('.', ',');
+    valorFormatado = valorFormatado.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+    document.getElementById('servicePrice').value = valorFormatado; 
     document.getElementById('serviceDuration').value = service.duracao; 
     document.getElementById('serviceDescription').value = service.descricao; 
-    document.getElementById('serviceForm').classList.remove('hidden'); // Mostra o form diretamente
+    document.getElementById('serviceForm').classList.remove('hidden'); 
     window.scrollTo(0, 0); 
 }
 
@@ -357,9 +380,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dashboard = document.getElementById('dashboard');
     if (dashboard && !dashboard.classList.contains('hidden')) {
         const budgetForm = document.getElementById('budgetFormData');
-        if (budgetForm) { budgetForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { client: document.getElementById('budgetClient').value, email: document.getElementById('budgetEmail').value, phone: document.getElementById('budgetPhone').value, value: parseFloat(document.getElementById('budgetValue').value), description: document.getElementById('budgetDescription').value, status: 'Pendente' }; const id = editingIdField.value; if (id) { await apiRequest('budgets', 'PUT', data, id); } else { await apiRequest('budgets', 'POST', data); } hideBudgetForm(); await loadAndRenderBudgets(); }); }
+        if (budgetForm) { budgetForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { client: document.getElementById('budgetClient').value, email: document.getElementById('budgetEmail').value, phone: document.getElementById('budgetPhone').value, value: converterMoedaParaFloat(document.getElementById('budgetValue').value), description: document.getElementById('budgetDescription').value, status: 'Pendente' }; const id = editingIdField.value; if (id) { await apiRequest('budgets', 'PUT', data, id); } else { await apiRequest('budgets', 'POST', data); } hideBudgetForm(); await loadAndRenderBudgets(); }); }
         const serviceForm = document.getElementById('serviceFormData');
-        if(serviceForm) { serviceForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { name: document.getElementById('serviceName').value, category: document.getElementById('serviceCategory').value, price: parseFloat(document.getElementById('servicePrice').value), duration: parseInt(document.getElementById('serviceDuration').value), description: document.getElementById('serviceDescription').value }; const id = editingIdField.value; if (id) { await apiRequest('services', 'PUT', data, id); } else { await apiRequest('services', 'POST', data); } hideServiceForm(); await loadAndRenderServices(); }); }
+        if(serviceForm) { serviceForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { name: document.getElementById('serviceName').value, category: document.getElementById('serviceCategory').value, price: converterMoedaParaFloat(document.getElementById('servicePrice').value), duration: parseInt(document.getElementById('serviceDuration').value), description: document.getElementById('serviceDescription').value }; const id = editingIdField.value; if (id) { await apiRequest('services', 'PUT', data, id); } else { await apiRequest('services', 'POST', data); } hideServiceForm(); await loadAndRenderServices(); }); }
         const appointmentForm = document.getElementById('appointmentFormData');
         if(appointmentForm) { appointmentForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { client: document.getElementById('appointmentClient').value, phone: document.getElementById('appointmentPhone').value, serviceId: parseInt(document.getElementById('appointmentService').value), date: document.getElementById('appointmentDate').value, time: document.getElementById('appointmentTime').value, status: document.getElementById('appointmentStatus').value, notes: document.getElementById('appointmentNotes').value }; const id = editingIdField.value; if (id) { await apiRequest('appointments', 'PUT', data, id); } else { await apiRequest('appointments', 'POST', data); } hideAppointmentForm(); await loadAndRenderAppointments(); }); }
         
