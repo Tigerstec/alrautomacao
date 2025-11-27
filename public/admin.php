@@ -279,8 +279,7 @@ $is_logged_in = isset($_SESSION['user_id']);
                                     <option value="">Selecione</option>
                                     <option value="consultoria">Consultoria</option>
                                     <option value="desenvolvimento">Desenvolvimento</option>
-                                    <option value="design">Design</option>
-                                    <option value="marketing">Marketing</option>
+                                    <option value="assistenciatecnica">Assistência Técnica</option>
                                     <option value="outros">Outros</option>
                                 </select>
                             </div>
