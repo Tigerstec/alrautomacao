@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 
 // --- CAMINHOS RELATIVOS (Baseados na sua estrutura de pastas) ---
 // Usa __DIR__ para navegar a partir da pasta 'controllers'
-require_once __DIR__ . 'PHPMailer/Exception';
+require_once __DIR__ . '../alrautomacao/PHPMailer/Exception';
 require_once __DIR__ . '/../../PHPMailer/src/PHPMailer.php';
 require_once __DIR__ . '/../../PHPMailer/src/SMTP.php';
 require_once __DIR__ . '/../config/connection.php'; 
