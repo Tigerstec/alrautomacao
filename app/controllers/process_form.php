@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->setFrom('alruto@alrautomacao.ifhost.gru.br', 'Site ALR Automação'); 
                 
                 // Para: Seu e-mail pessoal que vai receber o aviso (GMAIL)
-                $mail->addAddress('guikovacs013@gmail.com', 'Administrador'); 
+                $mail->addAddress('leonardobernades.81@gmail.com', 'Administrador'); 
                 
                 // Responder Para: Se você clicar em responder, vai para o cliente
                 $mail->addReplyTo($email, $name); 
