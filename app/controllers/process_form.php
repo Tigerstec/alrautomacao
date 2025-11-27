@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 
 // --- CAMINHOS RELATIVOS (Baseados na sua estrutura de pastas) ---
 // Usa __DIR__ para navegar a partir da pasta 'controllers'
-$arquivo = __DIR__ . '../../alrautomacao/PHPMailer/src/Exception.php';
+$arquivo = __DIR__ . '../PHPMailer/src/Exception.php';
 $caminhoReal = realpath($arquivo);
 
 echo "<script>
