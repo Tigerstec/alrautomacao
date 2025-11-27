@@ -240,8 +240,7 @@ $is_logged_in = isset($_SESSION['user_id']);
                             </div>
                             <div>
                                 <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Valor (R$)</label>
-                                <input type="number" id="budgetValue" step="0.01" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
-                            </div>
+                                <input type="text" id="budgetValue" name="budgetValue" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
                             <div class="md:col-span-2">
                                 <label class="block text-xs md:text-sm font-medium text-gray-700 mb-2">Descrição</label>
                                 <textarea id="budgetDescription" rows="3" class="w-full px-3 py-2 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required></textarea>
@@ -369,7 +368,9 @@ $is_logged_in = isset($_SESSION['user_id']);
     </div>
 
     <input type="hidden" id="editingId">
-
+                            
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="../public/assets/js/admin.js"></script>
     <script>
         // Menu Mobile Toggle
