@@ -5,6 +5,12 @@ header('Content-Type: application/json');
 // Carrega o Autoload do Composer (Isso carrega o DBConnection e o PHPMailer automaticamente)
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+// --- ADICIONE ISSO TEMPORARIAMENTE PARA TESTAR ---
+if (!file_exists(__DIR__ . '/../../vendor/phpmailer/phpmailer/src/PHPMailer.php')) {
+    die("ERRO CRÍTICO: O arquivo PHPMailer.php não foi encontrado no servidor! Verifique o upload da pasta vendor.");
+}
+// -------------------------------------------------
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
