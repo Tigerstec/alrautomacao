@@ -36,7 +36,10 @@ try {
     if ($user && password_verify($password, $user['senha'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['nome'];
-        echo json_encode(['success' => true]);
+        echo json_encode([
+            'success' => true,
+            'userName' => $user['nome']
+        ]);
     } else {
         echo json_encode([
             'success' => false, 

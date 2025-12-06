@@ -4,9 +4,14 @@ async function checkAuth() {
         const response = await fetch('api-check-auth', { method: 'GET' });
         const result = await response.json();
         
+        console.log('Resultado da autenticação:', result);
+        
         if (result.authenticated) {
-            showDashboard(result.userName);
+            const userName = result.userName || localStorage.getItem('userName') || 'Admin';
+            localStorage.setItem('userName', userName);
+            showDashboard(userName);
         } else {
+            localStorage.removeItem('userName');
             showLoginScreen();
         }
     } catch (error) {
@@ -125,6 +130,9 @@ if (loginForm) {
             });
             const result = await response.json();
             if (result.success) {
+                if (result.userName) {
+                    localStorage.setItem('userName', result.userName);
+                }
                 showDashboard(result.userName);
             } else {
                 errorDiv.textContent = result.message || 'Credenciais inválidas.';
