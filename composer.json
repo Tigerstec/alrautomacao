@@ -1,0 +1,13 @@
+{
+    "name": "guiko/alrautomacao",
+    "description": "Sistema de Automação",
+    "autoload": {
+        "psr-4": {
+            "core\\": "app/core/",
+            "app\\": "app/"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}
