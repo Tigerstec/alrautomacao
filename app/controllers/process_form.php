@@ -2,9 +2,7 @@
 // Define que o navegador deve interpretar resposta como JSON
 header('Content-Type: application/json');
 
-// Carrega o Autoload do Composer (Isso carrega o DBConnection e o PHPMailer automaticamente)
-require_once dirname(__DIR__, 2) . '/vendor/autoload.php';
-
+// O autoload já é carregado pelo ctrlRotas.php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
