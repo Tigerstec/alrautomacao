@@ -18,7 +18,9 @@ async function checkAuth() {
 function showDashboard(userName) {
     document.getElementById('loginScreen').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
-    document.getElementById('userGreeting').textContent = `Bem-vindo, ${userName}`;
+    const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Bem-vindo, ${userName}`;
+    userGreeting.style.visibility = 'visible';
     showSection('overview');
 }
 
