@@ -1,5 +1,4 @@
 # Dependências do Composer
-/vendor/
 composer.lock
 
 # Arquivos de ambiente
