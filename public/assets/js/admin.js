@@ -20,7 +20,6 @@ function showDashboard(userName) {
     document.getElementById('dashboard').classList.remove('hidden');
     const userGreeting = document.getElementById('userGreeting');
     userGreeting.textContent = `Bem-vindo, ${userName}`;
-    userGreeting.style.visibility = 'visible';
     showSection('overview');
 }
 
