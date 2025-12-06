@@ -4,7 +4,7 @@ namespace app\models;
 use core\database\DBConnection;
 use PDO;
 
-class ServicoDAO {
+class servicoDAO {
     private $pdo;
 
     public function __construct() {

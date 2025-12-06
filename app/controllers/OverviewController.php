@@ -1,16 +1,16 @@
 <?php
 namespace app\controllers;
 
-use app\models\OrcamentoDAO;
-use app\models\ServicoDAO;
-use app\models\AgendamentoDAO;
+use app\models\orcamentoDAO;
+use app\models\servicoDAO;
+use app\models\agendamentoDAO;
 
-class OverviewController {
+class overviewController {
     public function handleRequest() {
         // 1. Instancia os models
-        $orcamentoModel = new OrcamentoDAO();
-        $servicoModel = new ServicoDAO();
-        $agendamentoModel = new AgendamentoDAO();
+        $orcamentoModel = new orcamentoDAO();
+        $servicoModel = new servicoDAO();
+        $agendamentoModel = new agendamentoDAO();
 
         // 2. Busca as contagens (usando os métodos que garantimos que existem agora)
         $totalBudgets = $orcamentoModel->count();

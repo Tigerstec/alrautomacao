@@ -4,7 +4,7 @@ namespace app\models;
 use core\database\DBConnection;
 use PDO;
 
-class AgendamentoDAO {
+class agendamentoDAO {
     private $pdo;
 
     public function __construct() {

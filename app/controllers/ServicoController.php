@@ -1,12 +1,12 @@
 <?php
 namespace app\controllers;
 
-use app\models\ServicoDAO;
+use app\models\servicoDAO;
 
-class ServicoController {
+class servicoController {
     
     public function handleRequest($method, $id, $input) {
-        $model = new ServicoDAO();
+        $model = new servicoDAO();
 
         switch ($method) {
             case 'GET':
