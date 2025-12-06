@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class servico {
+class Servico {
     private $id;
     private $nome;
     private $categoria;

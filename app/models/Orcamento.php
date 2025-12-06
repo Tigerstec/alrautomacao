@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class orcamento {
+class Orcamento {
     private $id;
     private $cliente;
     private $email;

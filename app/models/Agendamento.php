@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-class agendamento {
+class Agendamento {
     private $id;
     private $cliente;
     private $telefone;

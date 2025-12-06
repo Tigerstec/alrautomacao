@@ -1,12 +1,12 @@
 <?php
 namespace app\controllers;
 
-use app\models\orcamentoDAO;
+use app\models\OrcamentoDAO;
 
-class orcamentoController {
+class OrcamentoController {
     
     public function handleRequest($method, $id, $input) {
-        $model = new orcamentoDAO();
+        $model = new OrcamentoDAO();
 
         switch ($method) {
             case 'GET':

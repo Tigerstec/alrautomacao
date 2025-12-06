@@ -12,10 +12,10 @@ if (!isset($_SESSION['user_id'])) {
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 // Importa os Controladores
-use app\controllers\orcamentoController;
-use app\controllers\servicoController;
-use app\controllers\agendamentoController;
-use app\controllers\overviewController;
+use app\controllers\OrcamentoController;
+use app\controllers\ServicoController;
+use app\controllers\AgendamentoController;
+use app\controllers\OverviewController;
 
 header('Content-Type: application/json');
 
@@ -29,19 +29,19 @@ try {
 
     switch ($entity) {
         case 'overview':
-            (new overviewController())->handleRequest();
+            (new OverviewController())->handleRequest();
             break;
 
         case 'budgets':
-            (new orcamentoController())->handleRequest($method, $id, $input);
+            (new OrcamentoController())->handleRequest($method, $id, $input);
             break;
 
         case 'services':
-            (new servicoController())->handleRequest($method, $id, $input);
+            (new ServicoController())->handleRequest($method, $id, $input);
             break;
 
         case 'appointments':
-            (new agendamentoController())->handleRequest($method, $id, $input);
+            (new AgendamentoController())->handleRequest($method, $id, $input);
             break;
         
         default:

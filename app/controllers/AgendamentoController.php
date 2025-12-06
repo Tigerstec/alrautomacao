@@ -1,12 +1,12 @@
 <?php
 namespace app\controllers;
 
-use app\models\agendamentoDAO;
+use app\models\AgendamentoDAO;
 
-class agendamentoController {
+class AgendamentoController {
     
     public function handleRequest($method, $id, $input) {
-        $model = new agendamentoDAO();
+        $model = new AgendamentoDAO();
 
         switch ($method) {
             case 'GET':
