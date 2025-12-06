@@ -2,8 +2,8 @@
 // Define que o navegador deve interpretar resposta como JSON
 header('Content-Type: application/json');
 
-// Carrega o Autoload do Composer (Isso carrega o DBConnection e o PHPMailer automaticamente)
-require_once __DIR__ . '/../../vendor/autoload.php';
+// C// Carrega o Autoload do Composer (Isso carrega o DBConnection e o PHPMailer automaticamente)
+require_once __DIR__ . '../vendor/dor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
