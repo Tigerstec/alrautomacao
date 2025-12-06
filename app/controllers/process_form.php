@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Só tenta enviar email se salvou no banco com sucesso
         try {
-            $mail = new PHPMailer(true);
+            $mail = new phpmailer(true);
             
             // Carrega configurações de email do .env
             $mailHost = EnvLoader::get('MAIL_HOST');
