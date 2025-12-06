@@ -4,9 +4,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Carrega o autoload do Composer uma única vez
-require_once __DIR__ . '/vendor/autoload.php';
-
 // Obtém a URI, removendo barras extras do início e fim.
 $full_uri = $_GET['uri'] ?? '';
 $uri_parts = explode('?', $full_uri, 2); // Divide a URI no '?'
