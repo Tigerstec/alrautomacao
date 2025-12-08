@@ -1,0 +1,32 @@
+
+RewriteEngine On
+
+DirectoryIndex ctrlRotas.php index.php index.html
+
+# Bloqueia acesso direto a /public/ - redireciona para raiz
+RewriteRule ^public/?$ / [R=301,L]
+
+# Proíbe o acesso direto a pastas sensíveis
+RewriteRule ^app/ - [F,L]
+
+# Bloqueia acesso ao .env
+RewriteRule ^\.env$ - [F,L]
+
+# Bloqueia acesso ao vendor
+RewriteRule ^vendor/ - [F,L]
+
+# Proíbe o acesso direto a arquivos .php (exceto ctrlRotas.php)
+RewriteCond %{REQUEST_URI} !/ctrlRotas\.php$ [NC]
+RewriteRule \.php$ - [F,L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !^/?$
+RewriteRule ^ - [L]
+
+# Se o arquivo ou diretório NÃO existir, envia tudo para o ctrlRotas.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ ctrlRotas.php?uri=$1 [QSA,L]
