@@ -1,6 +1,7 @@
 <?php
 // Define que o navegador deve interpretar resposta como JSON
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
+mb_internal_encoding('UTF-8');
 
 // Carrega o Autoload do Composer (Isso carrega o DBConnection e o PHPMailer automaticamente)
 require_once __DIR__ . '/../../vendor/autoload.php';
@@ -15,13 +16,13 @@ $response = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $company = filter_input(INPUT_POST, 'company', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $location = filter_input(INPUT_POST, 'location', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $service = filter_input(INPUT_POST, 'service', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $name = mb_convert_encoding($_POST['name'] ?? '', 'UTF-8', 'auto');
+    $company = mb_convert_encoding($_POST['company'] ?? '', 'UTF-8', 'auto');
+    $email = mb_convert_encoding($_POST['email'] ?? '', 'UTF-8', 'auto');
+    $phone = mb_convert_encoding($_POST['phone'] ?? '', 'UTF-8', 'auto');
+    $location = mb_convert_encoding($_POST['location'] ?? '', 'UTF-8', 'auto');
+    $service = mb_convert_encoding($_POST['service'] ?? '', 'UTF-8', 'auto');
+    $description = mb_convert_encoding($_POST['description'] ?? '', 'UTF-8', 'auto');
 
     // Verifica se TODOS os campos foram preenchidos
     if (empty($name) || empty($company) || empty($email) || empty($phone) || empty($location) || empty($service) || empty($description)) {
@@ -73,31 +74,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Encoding   = 'base64';
 
             // Destinatários
-            $mail->setFrom($mailFromEmail, $mailFromName);
+            $mail->setFrom($mailFromEmail, mb_encode_mimeheader($mailFromName, 'UTF-8'));
             $mail->addAddress('guikovacs013@gmail.com', 'Administrador');
-            $mail->addReplyTo($email, $name); // Se responder, vai para o cliente
+            $mail->addReplyTo($email, mb_encode_mimeheader($name, 'UTF-8')); // Se responder, vai para o cliente
 
             // Conteúdo
             $mail->isHTML(true);
-            $mail->Subject = 'Novo Contato pelo Site: ' . $name;
+            $mail->Subject = mb_encode_mimeheader('Novo Contato pelo Site: ' . $name, 'UTF-8');
             
             // Template HTML com meta charset
             $body = "<!DOCTYPE html>";
             $body .= "<html lang='pt-BR'>";
-            $body .= "<head><meta charset='UTF-8'></head>";
+            $body .= "<head><meta charset='UTF-8'><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head>";
             $body .= "<body style='font-family: Arial, sans-serif; color: #333;'>";
             $body .= "<div style='background-color: #f4f4f4; padding: 20px;'>";
             $body .= "<div style='background-color: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #E65100;'>";
             $body .= "<h2 style='color: #E65100; margin-top: 0;'>Nova Solicitação de Serviço</h2>";
-            $body .= "<p><strong>Cliente:</strong> " . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Empresa:</strong> " . htmlspecialchars($company, ENT_QUOTES, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Telefone:</strong> " . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Local:</strong> " . htmlspecialchars($location, ENT_QUOTES, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Serviço:</strong> " . htmlspecialchars($service, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Cliente:</strong> " . htmlentities($name, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Empresa:</strong> " . htmlentities($company, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Email:</strong> " . htmlentities($email, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Telefone:</strong> " . htmlentities($phone, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Local:</strong> " . htmlentities($location, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Serviço:</strong> " . htmlentities($service, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
             $body .= "<hr style='border: 1px solid #eee;'>";
             $body .= "<h3>Descrição do Problema:</h3>";
-            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br(htmlspecialchars($description, ENT_QUOTES, 'UTF-8')) . "</p>";
+            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br(htmlentities($description, ENT_QUOTES | ENT_HTML5, 'UTF-8')) . "</p>";
             $body .= "</div><p style='font-size: 12px; color: #999; text-align: center;'>Mensagem enviada automaticamente pelo site.</p></div>";
             $body .= "</body></html>";
             
