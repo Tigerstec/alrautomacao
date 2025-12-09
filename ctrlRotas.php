@@ -1,12 +1,12 @@
 <?php
 
-// Habilita a exibição de todos os erros para depuração
+// Habilita e Desabilita a exibição de erros
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
 // Obtém a URI, removendo barras extras do início e fim.
 $full_uri = $_GET['uri'] ?? '';
-$uri_parts = explode('?', $full_uri, 2); // Divide a URI no '?'
+$uri_parts = explode('?', $full_uri, 2);
 $uri = trim($uri_parts[0], '/');
 
 // Sanitiza os dados de GET e POST para evitar injeções básicas
@@ -18,7 +18,6 @@ foreach ($_POST as $key => $value) {
     $_POST[$key] = addslashes($value);
 }
 
-// Bloqueia acesso direto a /public/
 if ($uri === 'public' || strpos($uri, 'public/') === 0) {
     header('Location: /');
     exit;
@@ -64,9 +63,6 @@ function abreRota($uri) {
 
     $rotas = json_decode(file_get_contents($rotasPath), true);
     $success = false;
-
-    // A URI vazia ('') será agora usada para procurar a rota padrão no JSON.
-    // Ex: {"": "public/index.php"}
 
     foreach ($rotas as $key => $value) {
         if ($uri === $key) {

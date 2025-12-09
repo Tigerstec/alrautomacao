@@ -7,9 +7,6 @@ use PDOException;
 use RuntimeException;
 use app\config\EnvLoader;
 
-/**
- * Classe DBConnection adaptada para o projeto ALRAUTOMACAO.
- */
 class DBConnection {
     
     /** @var PDO Armazena a conexão PDO */
@@ -78,7 +75,7 @@ class DBConnection {
     
     /**
      * Executa uma consulta preparada (INSERT, UPDATE, DELETE ou SELECT com parâmetros).
-     * Mais seguro contra SQL Injection.
+     * seguro contra SQL Injection.
      * @param string $sqlCommand O SQL com placeholders (?)
      * @param array $values Os valores para substituir os ?
      */

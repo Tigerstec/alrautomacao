@@ -195,27 +195,22 @@ function formatarMoeda(i) {
     i.value = v;
 }
 
-// Converte o valor formatado (12.000,00) para float (12000.00) para enviar à API
 function converterMoedaParaFloat(valor) {
     if (!valor) return 0;
-    // Remove pontos e troca vírgula por ponto
     return parseFloat(valor.replace(/\./g, '').replace(',', '.'));
 }
 
-/** Mostra o formulário de orçamento para um NOVO item */
 function showBudgetForm() { 
     document.getElementById('budgetForm').classList.remove('hidden'); 
     editingIdField.value = null; // Limpa o ID para garantir que é um novo item
 }
 
-/** Esconde e reseta o formulário de orçamento */
 function hideBudgetForm() { 
     document.getElementById('budgetForm').classList.add('hidden'); 
     document.getElementById('budgetFormData').reset(); 
     editingIdField.value = null; 
 }
 
-/** Carrega os dados da API e chama a função de renderização */
 async function loadAndRenderBudgets() { 
     try { 
         const budgets = await apiRequest('budgets'); 
@@ -265,7 +260,6 @@ function editBudget(budget) {
     window.scrollTo(0, 0);
 }
 
-/** Deleta um orçamento pelo ID */
 async function deleteBudget(id) { 
     if (confirm('Tem certeza?')) { 
         await apiRequest('budgets', 'DELETE', null, id); 
@@ -274,25 +268,23 @@ async function deleteBudget(id) {
 }
 
 
-/** Mostra o formulário de serviço para um NOVO item */
 function showServiceForm() { 
     document.getElementById('serviceForm').classList.remove('hidden'); 
     editingIdField.value = null; // Limpa o ID
 }
 
-/** Esconde e reseta o formulário de serviço */
 function hideServiceForm() { 
     document.getElementById('serviceForm').classList.add('hidden'); 
     document.getElementById('serviceFormData').reset(); 
     editingIdField.value = null; 
 }
 
-/** Carrega os dados da API e chama a função de renderização */
+
 async function loadAndRenderServices() { 
     try { 
         const services = await apiRequest('services'); 
         renderServices(services); 
-        return services; // Retorna para ser usado no form de agendamento
+        return services; 
     } catch (e) { 
         console.error("Falha ao carregar Serviços"); 
         return []; 
@@ -334,7 +326,7 @@ function editService(service) {
     window.scrollTo(0, 0); 
 }
 
-/** Deleta um serviço pelo ID */
+
 async function deleteService(id) { 
     if (confirm('Tem certeza?')) { 
         await apiRequest('services', 'DELETE', null, id); 
@@ -344,19 +336,19 @@ async function deleteService(id) {
 
 
 async function showAppointmentForm() { 
-    await updateAppointmentServiceOptions(); // Garante que os serviços estão carregados
+    await updateAppointmentServiceOptions(); 
     document.getElementById('appointmentForm').classList.remove('hidden'); 
-    editingIdField.value = null; // Limpa o ID
+    editingIdField.value = null; 
 }
 
-/** Esconde e reseta o formulário de agendamento */
+
 function hideAppointmentForm() { 
     document.getElementById('appointmentForm').classList.add('hidden'); 
     document.getElementById('appointmentFormData').reset(); 
     editingIdField.value = null; 
 }
 
-/** Atualiza o <select> de serviços no formulário de agendamento */
+
 async function updateAppointmentServiceOptions() { 
     const services = await loadAndRenderServices(); 
     const select = document.getElementById('appointmentService'); 
@@ -370,7 +362,7 @@ async function updateAppointmentServiceOptions() {
 
 async function loadAndRenderAppointments() { 
     try { 
-        await updateAppointmentServiceOptions(); // Garante que os serviços estão disponíveis para o <select>
+        await updateAppointmentServiceOptions(); 
         const appointments = await apiRequest('appointments'); 
         renderAppointments(appointments); 
     } catch (e) { 
@@ -402,7 +394,7 @@ function renderAppointments(appointments) {
         </div>`).join(''); 
 }
 
-/** Função auxiliar para retornar a cor do status */
+
 function getStatusColor(status) { 
     const colors = { 
         'Agendado': 'bg-blue-100 text-blue-800', 
@@ -415,7 +407,7 @@ function getStatusColor(status) {
 }
 
 async function editAppointment(appointment) { 
-    await updateAppointmentServiceOptions(); // Garante que o <select> está carregado
+    await updateAppointmentServiceOptions(); 
     
     editingIdField.value = appointment.id; 
     document.getElementById('appointmentClient').value = appointment.cliente; 
@@ -426,11 +418,11 @@ async function editAppointment(appointment) {
     document.getElementById('appointmentStatus').value = appointment.status; 
     document.getElementById('appointmentNotes').value = appointment.observacoes; 
     
-    document.getElementById('appointmentForm').classList.remove('hidden'); // Mostra o form diretamente
+    document.getElementById('appointmentForm').classList.remove('hidden');
     window.scrollTo(0, 0); 
 }
 
-/** Deleta um agendamento pelo ID */
+
 async function deleteAppointment(id) { 
     if (confirm('Tem certeza?')) { 
         await apiRequest('appointments', 'DELETE', null, id); 
@@ -440,7 +432,6 @@ async function deleteAppointment(id) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Verifica autenticação ao carregar
     checkAuth();
     
     const budgetForm = document.getElementById('budgetFormData');
@@ -463,7 +454,7 @@ document.addEventListener('touchend', function(event) {
 }, false);
 let lastTouchEnd = 0;
 
-// Melhora o scroll em dispositivos móveis
+
 if ('ontouchstart' in window) {
     document.body.style.webkitOverflowScrolling = 'touch';
 }
@@ -501,12 +492,12 @@ function closeMobileMenu() {
 if ('vibrate' in navigator) {
     document.querySelectorAll('button, .btn').forEach(button => {
         button.addEventListener('click', function() {
-            navigator.vibrate(10); // Vibração curta de 10ms
+            navigator.vibrate(10); 
         });
     });
 }
 
-// Lazy loading para tabelas grandes
+
 const observerOptions = {
     root: null,
     rootMargin: '50px',

@@ -1,5 +1,5 @@
 {
-    "name": "guiko/alrautomacao",
+    "name": "alrautomacao",
     "description": "Sistema de Automação",
     "autoload": {
         "psr-4": {

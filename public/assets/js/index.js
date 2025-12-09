@@ -120,4 +120,4 @@ tailwind.config = {
             }
         });
     });
-   
+

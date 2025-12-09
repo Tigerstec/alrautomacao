@@ -215,7 +215,6 @@
         min-height: 44px;
     }
 
-    /* Botões maiores para melhor toque */
     button,
     .btn {
         min-height: 44px;
@@ -373,23 +372,6 @@ button,
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-/* Ajustes de Acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Dark Mode Support (Opcional) */
-@media (prefers-color-scheme: dark) {
-    /* Adicione aqui os estilos para dark mode se necessário */
 }
 
 /* Ajustes específicos para iOS */

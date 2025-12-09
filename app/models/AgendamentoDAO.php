@@ -23,7 +23,7 @@ class AgendamentoDAO {
     /**
      * Cria um novo agendamento no banco de dados
      * @param Agendamento $agendamento Objeto Agendamento com os dados
-     * @return int ID do novo agendamento
+     * @return int 
      */
     public function create(Agendamento $agendamento) {
         $stmt = $this->pdo->prepare("INSERT INTO agendamentos (cliente, telefone, servico_id, data_agendamento, hora_agendamento, status, observacoes) VALUES (?, ?, ?, ?, ?, ?, ?)");
@@ -63,7 +63,7 @@ class AgendamentoDAO {
         return $stmt->execute([$id]);
     }
 
-    // --- MÉTODOS PARA O DASHBOARD ---
+
 
     public function count() {
         return $this->pdo->query("SELECT COUNT(*) FROM agendamentos")->fetchColumn();
