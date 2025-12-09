@@ -70,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = ($mailEncryption === 'smtps') ? PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = (int)$mailPort;
             $mail->CharSet    = 'UTF-8';
+            $mail->Encoding   = 'base64';
 
             // Destinatários
             $mail->setFrom($mailFromEmail, $mailFromName);
@@ -80,20 +81,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isHTML(true);
             $mail->Subject = 'Novo Contato pelo Site: ' . $name;
             
-            // Template HTML
-            $body = "<html><body style='font-family: Arial, sans-serif; color: #333;'>";
+            // Template HTML com meta charset
+            $body = "<!DOCTYPE html>";
+            $body .= "<html lang='pt-BR'>";
+            $body .= "<head><meta charset='UTF-8'></head>";
+            $body .= "<body style='font-family: Arial, sans-serif; color: #333;'>";
             $body .= "<div style='background-color: #f4f4f4; padding: 20px;'>";
             $body .= "<div style='background-color: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #E65100;'>";
             $body .= "<h2 style='color: #E65100; margin-top: 0;'>Nova Solicitação de Serviço</h2>";
-            $body .= "<p><strong>Cliente:</strong> " . htmlspecialchars($name) . "</p>";
-            $body .= "<p><strong>Empresa:</strong> " . htmlspecialchars($company) . "</p>";
-            $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email) . "</p>";
-            $body .= "<p><strong>Telefone:</strong> " . htmlspecialchars($phone) . "</p>";
-            $body .= "<p><strong>Local:</strong> " . htmlspecialchars($location) . "</p>";
-            $body .= "<p><strong>Serviço:</strong> " . htmlspecialchars($service) . "</p>";
+            $body .= "<p><strong>Cliente:</strong> " . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Empresa:</strong> " . htmlspecialchars($company, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Email:</strong> " . htmlspecialchars($email, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Telefone:</strong> " . htmlspecialchars($phone, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Local:</strong> " . htmlspecialchars($location, ENT_QUOTES, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Serviço:</strong> " . htmlspecialchars($service, ENT_QUOTES, 'UTF-8') . "</p>";
             $body .= "<hr style='border: 1px solid #eee;'>";
             $body .= "<h3>Descrição do Problema:</h3>";
-            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br(htmlspecialchars($description)) . "</p>";
+            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br(htmlspecialchars($description, ENT_QUOTES, 'UTF-8')) . "</p>";
             $body .= "</div><p style='font-size: 12px; color: #999; text-align: center;'>Mensagem enviada automaticamente pelo site.</p></div>";
             $body .= "</body></html>";
             
