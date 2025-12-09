@@ -83,10 +83,17 @@ tailwind.config = {
             document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
 
         menuToggle.addEventListener('click', function() {
             mobileMenu.classList.toggle('hidden');
-            
+        });
+
+        // Fecha o menu quando qualquer link é clicado
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
         });
     });
 
