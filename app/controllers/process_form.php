@@ -90,15 +90,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $body .= "<div style='background-color: #f4f4f4; padding: 20px;'>";
             $body .= "<div style='background-color: #fff; padding: 20px; border-radius: 8px; border-left: 5px solid #E65100;'>";
             $body .= "<h2 style='color: #E65100; margin-top: 0;'>Nova Solicitação de Serviço</h2>";
-            $body .= "<p><strong>Cliente:</strong> " . htmlentities($name, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Empresa:</strong> " . htmlentities($company, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Email:</strong> " . htmlentities($email, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Telefone:</strong> " . htmlentities($phone, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Local:</strong> " . htmlentities($location, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
-            $body .= "<p><strong>Serviço:</strong> " . htmlentities($service, ENT_QUOTES | ENT_HTML5, 'UTF-8') . "</p>";
+            $body .= "<p><strong>Cliente:</strong> " . $name . "</p>";
+            $body .= "<p><strong>Empresa:</strong> " . $company . "</p>";
+            $body .= "<p><strong>Email:</strong> " . $email . "</p>";
+            $body .= "<p><strong>Telefone:</strong> " . $phone . "</p>";
+            $body .= "<p><strong>Local:</strong> " . $location . "</p>";
+            $body .= "<p><strong>Serviço:</strong> " . $service . "</p>";
             $body .= "<hr style='border: 1px solid #eee;'>";
             $body .= "<h3>Descrição do Problema:</h3>";
-            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br(htmlentities($description, ENT_QUOTES | ENT_HTML5, 'UTF-8')) . "</p>";
+            $body .= "<p style='background-color: #f9f9f9; padding: 15px; border-radius: 4px;'>" . nl2br($description) . "</p>";
             $body .= "</div><p style='font-size: 12px; color: #999; text-align: center;'>Mensagem enviada automaticamente pelo site.</p></div>";
             $body .= "</body></html>";
             
