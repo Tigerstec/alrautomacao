@@ -1,18 +1,16 @@
 //Formulário
-$(document).ready(function() {
-      // Aplica máscara de telefone ao campo
-    import('https://cdn.jsdelivr.net/npm/imask@7.2.1/esm/index.js').then(module => {
-        const IMask = module.default;
-        const phoneInput = document.getElementById('phone');
-        
-        if (phoneInput) {
-            const mask = IMask(phoneInput, {
-                mask: '(00) 00000-0000',
-                lazy: false,
-                overwrite: true
-            });
-        }
-    }).catch(err => console.log('IMask library not loaded'));
+      // Aplica máscara de telefone ao campo usando a biblioteca IMask
+          if (window.IMask) {
+              const phoneInput = document.getElementById('phone');
+              
+              if (phoneInput) {
+                  window.IMask(phoneInput, {
+                      mask: '(00) 00000-0000',
+                      lazy: false,
+                      overwrite: true
+                  });
+              }
+          }
 
     
     // Função para validar email
