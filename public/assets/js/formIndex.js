@@ -1,4 +1,5 @@
 //Formulário
+$(document).ready(function() {
       // Aplica máscara de telefone ao campo usando a biblioteca IMask
           if (window.IMask) {
               const phoneInput = document.getElementById('phone');
