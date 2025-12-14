@@ -446,10 +446,14 @@ async function updateAppointmentServiceOptions() {
     } 
 }
 
+// Variável global para armazenar agendamentos
+let allAppointments = [];
+
 async function loadAndRenderAppointments() { 
     try { 
         await updateAppointmentServiceOptions(); 
         const appointments = await apiRequest('appointments'); 
+        allAppointments = appointments || []; // Armazena globalmente
         renderAppointments(appointments); 
     } catch (e) { 
         console.error("Falha ao carregar Agendamentos"); 
@@ -468,11 +472,20 @@ function renderAppointments(appointments) {
                 <h4 class="font-semibold text-gray-800 text-base">${a.cliente}</h4> 
                 <span class="px-2 py-1 text-xs rounded-full ${getStatusColor(a.status)}">${a.status}</span>
             </div>
-            <p class="text-sm font-medium text-indigo-600 mb-2">${a.serviceName}</p> 
+            
+            <!-- Informações do Serviço -->
+            <div class="bg-indigo-50 p-2 rounded-lg mb-3">
+                <p class="text-sm font-semibold text-indigo-700 mb-1">⚡ ${a.serviceName}</p>
+                ${a.servicePrice ? `<p class="text-xs text-indigo-600">💰 R$ ${parseFloat(a.servicePrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>` : ''}
+                ${a.serviceDuration ? `<p class="text-xs text-indigo-600">⏱️ Duração: ${a.serviceDuration} minutos</p>` : ''}
+            </div>
+            
+            <!-- Informações do Agendamento -->
             <p class="text-xs text-gray-600 mb-2">📅 ${new Date(a.data_agendamento + 'T00:00:00').toLocaleDateString('pt-BR')}</p> 
             <p class="text-xs text-gray-600 mb-2">🕐 ${a.hora_agendamento.substring(0, 5)}</p> 
             <p class="text-xs text-gray-600 mb-3">📞 ${a.telefone}</p> 
             ${a.observacoes ? `<p class="text-sm text-gray-700 mb-3 line-clamp-2">${a.observacoes}</p>` : ''} 
+            
             <div class="flex gap-2"> 
                 <button onclick='editAppointment(${JSON.stringify(a)})' class="flex-1 text-xs bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition-colors">Editar</button> 
                 <button onclick="deleteAppointment(${a.id})" class="flex-1 text-xs bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors">Excluir</button> 
@@ -516,6 +529,29 @@ async function deleteAppointment(id) {
     } 
 }
 
+// Função para verificar se existe conflito de horário
+function checkAppointmentConflict(date, time, excludeId = null) {
+    return allAppointments.some(appointment => {
+        // Ignora o agendamento atual ao editar
+        if (excludeId && appointment.id == excludeId) {
+            return false;
+        }
+        
+        // Verifica se a data e hora são iguais
+        return appointment.data_agendamento === date && 
+               appointment.hora_agendamento === time;
+    });
+}
+
+// Função auxiliar para verificar se data/hora foram alteradas durante edição
+async function checkIfDateTimeChanged(appointmentId, newDate, newTime) {
+    const appointment = allAppointments.find(a => a.id == appointmentId);
+    if (!appointment) return true; // Se não encontrar, considera como novo
+    
+    return appointment.data_agendamento !== newDate || 
+           appointment.hora_agendamento !== newTime;
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
@@ -525,7 +561,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceForm = document.getElementById('serviceFormData');
     if(serviceForm) { serviceForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { name: document.getElementById('serviceName').value, category: document.getElementById('serviceCategory').value, price: converterMoedaParaFloat(document.getElementById('servicePrice').value), duration: parseInt(document.getElementById('serviceDuration').value), description: document.getElementById('serviceDescription').value }; const id = editingIdField.value; if (id) { await apiRequest('services', 'PUT', data, id); } else { await apiRequest('services', 'POST', data); } hideServiceForm(); await loadAndRenderServices(); }); }
     const appointmentForm = document.getElementById('appointmentFormData');
-    if(appointmentForm) { appointmentForm.addEventListener('submit', async function(e) { e.preventDefault(); const data = { client: document.getElementById('appointmentClient').value, phone: document.getElementById('appointmentPhone').value, serviceId: parseInt(document.getElementById('appointmentService').value), date: document.getElementById('appointmentDate').value, time: document.getElementById('appointmentTime').value, status: document.getElementById('appointmentStatus').value, notes: document.getElementById('appointmentNotes').value }; const id = editingIdField.value; if (id) { await apiRequest('appointments', 'PUT', data, id); } else { await apiRequest('appointments', 'POST', data); } hideAppointmentForm(); await loadAndRenderAppointments(); }); }
+    if(appointmentForm) { appointmentForm.addEventListener('submit', async function(e) { 
+        e.preventDefault(); 
+        
+        const data = { 
+            client: document.getElementById('appointmentClient').value, 
+            phone: document.getElementById('appointmentPhone').value, 
+            serviceId: parseInt(document.getElementById('appointmentService').value), 
+            date: document.getElementById('appointmentDate').value, 
+            time: document.getElementById('appointmentTime').value, 
+            status: document.getElementById('appointmentStatus').value, 
+            notes: document.getElementById('appointmentNotes').value 
+        }; 
+        
+        const id = editingIdField.value; 
+        
+        // Validação de conflito de horário (apenas para novos agendamentos ou ao alterar data/hora)
+        if (!id || await checkIfDateTimeChanged(id, data.date, data.time)) {
+            const hasConflict = checkAppointmentConflict(data.date, data.time, id);
+            if (hasConflict) {
+                alert('❌ Já existe um agendamento nesse dia e horário!\n\nPor favor, escolha outro horário.');
+                return; // Impede o envio do formulário
+            }
+        }
+        
+        if (id) { 
+            await apiRequest('appointments', 'PUT', data, id); 
+        } else { 
+            await apiRequest('appointments', 'POST', data); 
+        } 
+        
+        hideAppointmentForm(); 
+        await loadAndRenderAppointments(); 
+    }); }
     
     const dateInput = document.getElementById('appointmentDate');
     if(dateInput) { const today = new Date().toISOString().split('T')[0]; dateInput.setAttribute('min', today); }
