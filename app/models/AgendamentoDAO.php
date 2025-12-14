@@ -13,7 +13,7 @@ class AgendamentoDAO {
 
     public function getAll() {
         // Busca agendamentos com dados do serviço (JOIN)
-        $sql = "SELECT a.*, s.nome as serviceName, s.preco as servicePrice 
+        $sql = "SELECT a.*, s.nome as serviceName, s.preco as servicePrice, s.duracao as serviceDuration 
                 FROM agendamentos a 
                 JOIN servicos s ON a.servico_id = s.id 
                 ORDER BY a.data_agendamento DESC, a.hora_agendamento DESC";

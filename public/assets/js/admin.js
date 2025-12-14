@@ -531,16 +531,30 @@ async function deleteAppointment(id) {
 
 // Função para verificar se existe conflito de horário
 function checkAppointmentConflict(date, time, excludeId = null) {
-    return allAppointments.some(appointment => {
+    console.log('🔍 Verificando conflitos para:', { date, time, excludeId });
+    console.log('📋 Agendamentos existentes:', allAppointments);
+    
+    const hasConflict = allAppointments.some(appointment => {
         // Ignora o agendamento atual ao editar
         if (excludeId && appointment.id == excludeId) {
+            console.log('⏭️ Ignorando agendamento atual:', appointment.id);
             return false;
         }
         
         // Verifica se a data e hora são iguais
-        return appointment.data_agendamento === date && 
-               appointment.hora_agendamento === time;
+        const isSameDate = appointment.data_agendamento === date;
+        const isSameTime = appointment.hora_agendamento === time;
+        
+        if (isSameDate && isSameTime) {
+            console.log('❌ CONFLITO ENCONTRADO:', appointment);
+            return true;
+        }
+        
+        return false;
     });
+    
+    console.log('Resultado da verificação:', hasConflict ? '❌ CONFLITO' : '✅ SEM CONFLITO');
+    return hasConflict;
 }
 
 // Função auxiliar para verificar se data/hora foram alteradas durante edição
@@ -550,6 +564,29 @@ async function checkIfDateTimeChanged(appointmentId, newDate, newTime) {
     
     return appointment.data_agendamento !== newDate || 
            appointment.hora_agendamento !== newTime;
+}
+
+// Funções para o modal de alerta customizado
+function showAlertModal(message) {
+    const modal = document.getElementById('alertModal');
+    const messageEl = document.getElementById('alertMessage');
+    
+    if (messageEl) {
+        messageEl.textContent = message;
+    }
+    
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Previne scroll do body
+    }
+}
+
+function closeAlertModal() {
+    const modal = document.getElementById('alertModal');
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restaura scroll do body
+    }
 }
 
 
@@ -576,14 +613,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const id = editingIdField.value; 
         
+        console.log('📝 Tentando salvar agendamento:', { id, data });
+        
         // Validação de conflito de horário (apenas para novos agendamentos ou ao alterar data/hora)
         if (!id || await checkIfDateTimeChanged(id, data.date, data.time)) {
             const hasConflict = checkAppointmentConflict(data.date, data.time, id);
             if (hasConflict) {
-                alert('❌ Já existe um agendamento nesse dia e horário!\n\nPor favor, escolha outro horário.');
+                console.log('🚫 Bloqueando salvamento devido a conflito');
+                showAlertModal('Já existe um agendamento nesse dia e horário!\n\nPor favor, escolha outro horário.');
                 return; // Impede o envio do formulário
             }
         }
+        
+        console.log('✅ Nenhum conflito encontrado, salvando...');
         
         if (id) { 
             await apiRequest('appointments', 'PUT', data, id); 
@@ -630,6 +672,19 @@ document.addEventListener('keydown', function(e) {
         hideServiceForm();
         hideAppointmentForm();
         closeMobileMenu();
+        closeAlertModal();
+    }
+});
+
+// Fecha modal ao clicar fora dele
+document.addEventListener('DOMContentLoaded', function() {
+    const alertModal = document.getElementById('alertModal');
+    if (alertModal) {
+        alertModal.addEventListener('click', function(e) {
+            if (e.target === alertModal) {
+                closeAlertModal();
+            }
+        });
     }
 });
 

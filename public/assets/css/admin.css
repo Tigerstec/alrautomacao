@@ -31,21 +31,26 @@
     }
 }
 
-/* Fade Menu Mobile */
-.fade-in {
-    animation: fadeIn 0.3s ease-in;
+/* Animação para o modal de alerta */
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.animate-bounce-in {
+    animation: bounce-in 0.5s ease-out;
 }
 
 .slide-in {
