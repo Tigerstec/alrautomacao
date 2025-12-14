@@ -422,54 +422,9 @@ async function deleteService(id) {
 
 
 async function showAppointmentForm() { 
-    await updateAppointmentServiceOptions();
-    await updateAppointmentBudgetSelector(); 
+    await updateAppointmentServiceOptions(); 
     document.getElementById('appointmentForm').classList.remove('hidden'); 
     editingIdField.value = null; 
-}
-
-// Atualiza o seletor de orçamentos no formulário de agendamentos
-async function updateAppointmentBudgetSelector() {
-    try {
-        const budgets = await apiRequest('budgets');
-        const select = document.getElementById('appointmentBudgetSelector');
-        if (select && budgets) {
-            select.innerHTML = '<option value="">Selecione um orçamento (opcional)</option>';
-            budgets.forEach(budget => {
-                select.innerHTML += `<option value="${budget.id}" data-budget='${JSON.stringify(budget)}'>Cliente: ${budget.cliente} - Tel: ${budget.telefone}</option>`;
-            });
-        }
-    } catch (error) {
-        console.error('Erro ao carregar orçamentos:', error);
-    }
-}
-
-// Preenche o formulário de agendamento com dados de um orçamento selecionado
-function fillAppointmentFromBudget() {
-    const select = document.getElementById('appointmentBudgetSelector');
-    const selectedOption = select.options[select.selectedIndex];
-    
-    if (selectedOption.value) {
-        const budget = JSON.parse(selectedOption.getAttribute('data-budget'));
-        
-        // Preenche o nome do cliente
-        document.getElementById('appointmentClient').value = budget.cliente;
-        
-        // Preenche o telefone
-        document.getElementById('appointmentPhone').value = budget.telefone;
-        
-        // Destaca os campos preenchidos com uma animação
-        const clientField = document.getElementById('appointmentClient');
-        const phoneField = document.getElementById('appointmentPhone');
-        
-        clientField.style.backgroundColor = '#e0f2fe';
-        phoneField.style.backgroundColor = '#e0f2fe';
-        
-        setTimeout(() => {
-            clientField.style.backgroundColor = '';
-            phoneField.style.backgroundColor = '';
-        }, 1000);
-    }
 }
 
 
@@ -551,8 +506,7 @@ function getStatusColor(status) {
 }
 
 async function editAppointment(appointment) { 
-    await updateAppointmentServiceOptions();
-    await updateAppointmentBudgetSelector(); 
+    await updateAppointmentServiceOptions(); 
     
     editingIdField.value = appointment.id; 
     document.getElementById('appointmentClient').value = appointment.cliente; 
