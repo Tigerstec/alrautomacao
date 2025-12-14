@@ -1,0 +1,20 @@
+# Dependências do Composer
+composer.lock
+
+# Arquivos de ambiente
+.env
+
+# Cache
+/cache/
+/tmp/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
